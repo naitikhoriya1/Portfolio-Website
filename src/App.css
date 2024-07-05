@@ -1,0 +1,155 @@
+* {
+  margin: 0%;
+  font-size: large;
+  font-weight: 400;
+  font-family: Arial, sans-serif;
+}
+.mainnavbar {
+  height: 70px;
+  padding: 2px 20px;
+  background-color: #254336;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+}
+.firstnavbar > a {
+  /* background-color: red; */
+  text-decoration: none;
+  color: whitesmoke;
+}
+.secondnavbar {
+  /* background-color: rgb(0, 0, 0); */
+}
+.secondnavbar > a {
+  text-decoration: none;
+  padding: 16px;
+  /* color: #dad3be; */
+  color: white;
+}
+.secondnavbar > a:hover {
+  color: rgb(178, 196, 211);
+  transition: all 0.2s;
+}
+.home-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.background-image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  /* opacity: 0.5; */
+}
+
+.home-text {
+  line-height: 70px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.home-text h1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 4em;
+  margin: 0;
+}
+
+.home-text p {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.mainabout {
+  margin: 100px;
+  /* border: 1px solid black; */
+  height: 550px;
+  /* background-color: #dedace70; */
+  background-color: #dcd8c8;
+  /* color: white; */
+  border-radius: 20px;
+}
+.submainabout {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+.firstabout {
+  display: flex;
+}
+.imageabout > div > img {
+  width: 160px;
+  margin-top: 44px;
+  border-radius: 20px;
+  margin-left: 40px;
+}
+.skillsabout {
+  margin: 45px 10px;
+}
+.brtag {
+  font-weight: bolder;
+  line-height: 30px;
+}
+.secondabout {
+  padding: 3px 20px;
+  /* display: flex; */
+  text-align: start;
+  width: 700px;
+  /* align-items: center; */
+}
+.secondabout > span {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+  font-size: 40px;
+  /* line-height: 30px; */
+}
+.secondabout > p {
+  margin: 5px;
+  padding: 4px;
+  line-height: 23px;
+}
+.skills {
+  margin-left: 20px;
+  line-height: 34px;
+  width: 250px;
+}
+
+.range1 {
+  width: 85%;
+  height: 5px;
+  background-color: #6b8a7a;
+}
+.range2 {
+  width: 70%;
+  height: 5px;
+  background-color: #6b8a7a;
+}
+.range3 {
+  width: 40%;
+  height: 5px;
+  background-color: #6b8a7a;
+}
+.range4 {
+  width: 50%;
+  height: 5px;
+  background-color: #6b8a7a;
+}
+.range5 {
+  width: 70%;
+  height: 5px;
+  background-color: #6b8a7a;
+}
+.range6 {
+  width: 70%;
+  height: 5px;
+  background-color: #6b8a7a;
+}
+
+.firstabout,
+.secondabout {
+  flex: 1;
+}
