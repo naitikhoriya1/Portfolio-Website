@@ -1,0 +1,96 @@
+@font-face {
+  font-family: "onefont";
+  src: url("./font/one.woff2") format("woff2");
+}
+@font-face {
+  font-family: "twofont";
+  src: url("./font/two.woff2") format("woff2");
+}
+@font-face {
+  font-family: "threefont";
+  src: url("./font/three.woff2") format("woff2");
+}
+@font-face {
+  font-family: "fourfont";
+  src: url("./font/four.woff2") format("woff2");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "threefont";
+}
+body,
+html {
+  height: 100%;
+  width: 100%;
+  /* background-color: #3f68a6; */
+}
+.page1 {
+  height: 100vh;
+  width: 100vw;
+  background-color: #f1e9df;
+  /* filter: brightness(30%) */
+}
+.navbar {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  /* background-color: green; */
+  border-bottom: 2px solid black;
+}
+.navbar-left h1 {
+  letter-spacing: 1px;
+}
+.navbar-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+.navbar-right i {
+  font-size: 25px;
+}
+
+.page1-content {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  padding: 0 5%;
+  overflow: hidden;
+}
+.page1-content-left {
+  width: 70%;
+  height: 100%;
+  /* position: absolute; */
+}
+.page1-content-left h1 {
+    /* font-family: "threefont"; */
+  position: relative;
+  font-size: 18rem;
+  letter-spacing: 1px;
+  left: 0;
+  top: 60%;
+}
+.page1-content-right {
+  width: 30%;
+  height: 100%;
+}
+.page1-content-right h3 {
+  position: relative;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  left: 0;
+  top: 40%;
+}
+.page1-content-right h2 {
+  position: relative;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  left: 0;
+  top: 60%;
+}
