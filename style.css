@@ -216,8 +216,8 @@ html {
 }
 
 .card-title {
-  font-size: 2rem;
-  font-weight: 300;
+  font-size: 2.5rem;
+  font-weight: 500;
   color: #fff8dc;
 }
 
@@ -235,7 +235,7 @@ html {
 }
 .card-description {
   font-weight: 300;
-  line-height: 1.5;
+  line-height: 2;
   color: #fff8dc;
 }
 
