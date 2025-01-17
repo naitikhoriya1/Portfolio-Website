@@ -173,17 +173,23 @@ html {
   background-position: center;
 }
 
+.page3 {
+  background-color: #fbefd9;
+  font-family: "Saisei", sans-serif;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  padding: 15vh 0;
+  /* padding: 15vh 0; */
   text-align: center;
 }
 
 .card {
-  width: 27vw;
+  width: 100vw;
+  height: 100vh;
   background-color: #2e251e;
   border-radius: 20px;
   padding: 20px;
@@ -192,7 +198,7 @@ html {
   align-items: center;
   gap: 20px;
   position: sticky;
-  top: 15vh;
+  top: 10vh;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -202,23 +208,39 @@ html {
 }
 
 .card-image {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
+  width: 60%;
+  height: 60%;
+  /* object-fit:cover; */
+  object-position: center;
   border-radius: 10px;
 }
 
 .card-title {
   font-size: 2rem;
   font-weight: 300;
+  color: #fff8dc;
 }
 
 .card-subtitle {
   font-weight: 700;
   font-size: 0.8rem;
+  color: #fff8dc;
 }
-
+.card-subtitle a {
+  text-decoration: none;
+  color: #fff8dc;
+}
+.card-subtitle a:hover {
+  color: #e07b39;
+}
 .card-description {
   font-weight: 300;
   line-height: 1.5;
+  color: #fff8dc;
+}
+
+.page4 {
+  background-color: #fbefd9;
+  height: 100vh;
+  width: 100vw;
 }
