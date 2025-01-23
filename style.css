@@ -262,3 +262,59 @@ html {
   border-bottom: 1px solid #2e251e;
 }
 /*  Page 4 CSS */
+.page4 {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: #fbefd9;
+  display: flex;
+  font-family: "Saisei";
+}
+.page4-left {
+  width: 30%;
+  /* background-color: green; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2% 3%;
+}
+.page4-left h2 {
+  position: absolute;
+  font-size: 2rem;
+  font-weight: 100;
+  bottom: 10%;
+}
+.page4-right {
+  height: 100%;
+  width: 70%;
+  /* background-color: yellow; */
+  /* margin: 2%; */
+}
+
+.page4-right-up {
+  height: 60%;
+  display: flex;
+  justify-content: space-around;
+  align-items: end;
+  padding: 2% 5%;
+}
+.page4-right-up-img1 {
+  height: 90%;
+  width: 30%;
+  /* background-color: green; */
+}
+.page4-right-up-img1 img {
+  width: 30%;
+}
+.page4-right-up-img2 {
+  height: 70%;
+  width: 30%;
+  /* background-color: green; */
+}
+.page4-right-up-img2 img {
+  width: 30%;
+}
+.page4-right-down {
+  height: 40%;
+  background-color: red;
+}
