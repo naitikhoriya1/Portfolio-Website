@@ -14,10 +14,10 @@
   font-family: "fourfont";
   src: url("./font/four.woff2") format("woff2");
 }
-/* @font-face {
+@font-face {
   font-family: "siese";
   src: url("./font/Saisei\ –\ Innovative\ Architecture\ &\ Sustainable\ Design\ Studio.html");
-} */
+}
 @font-face {
   font-family: "calgory";
   src: url("./font/Calgary_DEMO.ttf") format("woff2");
@@ -26,7 +26,6 @@
   font-family: "vilaka";
   src: url("./font/Vilaka\ Modern\ Serif\ Font.ttf") format("woff2");
 }
-
 html.lenis,
 html.lenis body {
   height: auto;
@@ -43,6 +42,7 @@ html.lenis body {
 .lenis.lenis-smooth iframe {
   pointer-events: none;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -254,3 +254,11 @@ html {
   line-height: 2;
   color: #fff8dc;
 }
+
+.gap {
+  height: 30vh;
+  width: 100vw;
+  background-color: #fbefd9;
+  border-bottom: 1px solid #2e251e;
+}
+/*  Page 4 CSS */
