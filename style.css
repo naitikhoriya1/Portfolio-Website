@@ -337,3 +337,23 @@ html {
   background-size: cover;
   background-position: center;
 }
+
+/*  Page 5 CSS */
+.page5 {
+  height: 150vh;
+  width: 100%;
+  background-color: #331628;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page5-left {
+  width: 50%;
+  height: 100%;
+  background-color: #fff;
+}
+.page5-right {
+  width: 50%;
+  height: 100%;
+  background-color: #d76464;
+}
