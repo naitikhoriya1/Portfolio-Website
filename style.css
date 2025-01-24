@@ -206,7 +206,7 @@ html {
 .card {
   width: 100vw;
   height: 100vh;
-  background-color: #2e251e;
+  background-color: #331628;
   border-radius: 20px;
   padding: 20px;
   display: flex;
@@ -294,7 +294,7 @@ html {
 .page4-right-up {
   height: 60%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: end;
   padding: 2% 5%;
 }
@@ -304,7 +304,9 @@ html {
   /* background-color: green; */
 }
 .page4-right-up-img1 img {
-  width: 30%;
+  width: 80%;
+  background-size: cover;
+  background-position: center;
 }
 .page4-right-up-img2 {
   height: 70%;
@@ -312,9 +314,26 @@ html {
   /* background-color: green; */
 }
 .page4-right-up-img2 img {
-  width: 30%;
+  width: 70%;
+  background-size: cover;
+  background-position: center;
 }
 .page4-right-down {
   height: 40%;
-  background-color: red;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: red; */
+}
+.page4-right-down-img1 {
+  height: 100%;
+  width: 30%;
+  /* background-color: green; */
+}
+.page4-right-down-img1 img {
+  right: 30%;
+  width: 60%;
+  background-size: cover;
+  background-position: center;
 }
