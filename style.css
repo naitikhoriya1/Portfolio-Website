@@ -340,9 +340,13 @@ html {
 
 /*  Page 5 CSS */
 .page5 {
-  height: 150vh;
+  height: 210vh;
   width: 100%;
   background-color: #331628;
+}
+.page5-up {
+  height: 33%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -350,10 +354,97 @@ html {
 .page5-left {
   width: 50%;
   height: 100%;
-  background-color: #fff;
+  /* background-color: #2d9938; */
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.page5-left-img {
+  width: 60%;
+  height: 50%;
+  /* background-color: #fff; */
+  color: #fff;
+}
+.page5-left-img img {
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+  /* object-position: center; */
 }
 .page5-right {
   width: 50%;
   height: 100%;
-  background-color: #d76464;
+  /* background-color: #d76464; */
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+.page5-right-img {
+  width: 60%;
+  height: 50%;
+  /* background-color: #fff; */
+  color: #fff;
+}
+.page5-right-img img {
+  width: 100%;
+  height: 100%;
+}
+.page5-down {
+  height: 33%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page5-middle {
+  height: 33%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 1%;
+}
+.footer {
+  margin-top: 5%;
+  height: 50%;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* background-color: #331628; */
+}
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer-left h1 {
+  font-size: 5rem;
+  font-weight: 100;
+}
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+.footer-link {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: space-around;
+}
+.footer-right h2 {
+  border-bottom: 2px solid #331628;
+}
+.footer-link a {
+  text-decoration: none;
+  color: #000000;
+  margin-left: 10px;
+  border-bottom: 2px solid #331628;
+}
+.footer-link a:hover {
+  color: #331628;
 }
