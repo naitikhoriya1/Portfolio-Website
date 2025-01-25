@@ -406,13 +406,13 @@ html {
   padding-bottom: 1%;
 }
 .footer {
-  margin-top: 5%;
+  padding-top: 5%;
   height: 50%;
   width: 100vw;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* background-color: #331628; */
+  background-color: #fbefd9;
 }
 .footer-left {
   display: flex;
@@ -430,7 +430,7 @@ html {
   justify-content: space-between;
   gap: 50px;
 }
-.gmail h2{
+.gmail h2 {
   font-size: 2.5rem;
   font-weight: 100;
 }
