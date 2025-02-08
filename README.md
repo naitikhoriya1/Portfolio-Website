@@ -49,7 +49,7 @@ If you’d like to collaborate or just say hi, feel free to reach out!
 🐦 Twitter: @yourhandle
 💼 LinkedIn: yourprofile
 👨‍💻 GitHub: yourusername
-Made with ❤️ by Your Name
+Made with ❤️ by Naitik khoriya
 
 vbnet
 Copy
