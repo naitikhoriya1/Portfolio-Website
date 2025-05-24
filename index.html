@@ -23,126 +23,208 @@
       </div>
       <div class="page1-content">
         <div class="page1-content-left">
-          <h1>NAITIK</h1>
+          <h1 class="glitch" data-text="NAITIK">NAITIK</h1>
+          <div class="scroll-indicator">
+            <div class="mouse">
+              <div class="wheel"></div>
+            </div>
+            <div class="arrow">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
         </div>
         <div class="page1-content-right">
-          <h3>
-            CSE’25 UG @BTU 🎓 | <br />
-            Creative Web Developer 🧑‍💻 | <br />
-            @Gssoc-Ext '24 🌐, @Hacktoberfest'23 - '24 Contributor 🎉 | MERN
-            Developer 💻 | UI / UX Designer 🎨 | @2x Hackathon Runner-Up 🥈
-          </h3>
-          <h2>SCROLL</h2>
+          <div class="role-tags">
+            <span class="tag">CSE'25 UG @BTU 🎓</span>
+            <span class="tag">Creative Web Developer 🧑‍💻</span>
+            <span class="tag">@Gssoc-Ext '24 🌐</span>
+            <span class="tag">@Hacktoberfest'23 - '24 🎉</span>
+            <span class="tag">MERN Developer 💻</span>
+            <span class="tag">UI / UX Designer 🎨</span>
+            <span class="tag">Frontend Developer 🦁</span>
+          </div>
         </div>
       </div>
     </div>
     <div class="page2">
       <div class="page2-left">
-        <h2>
-          About Me <br />( Naitik khoriya ) <br />
-          Creative Web Developer
-        </h2>
-        <h1>Every Line Tells a story</h1>
+        <div class="section-title">
+          <span class="subtitle">About Me</span>
+          <h2 class="title">Naitik Khoriya</h2>
+          <h3 class="role">Creative Web Developer</h3>
+        </div>
+        <h1 class="quote">Every Line Tells a Story</h1>
       </div>
-      <div class="page2-middle"></div>
+      <div class="page2-middle">
+        <div class="image-overlay"></div>
+      </div>
       <div class="page2-right">
-        <p>
-          Hi, I'm [ Naitik khoriya ], a passionate Full-Stack Web Developer with
-          a growing expertise in UI/UX Design. I thrive at the intersection of
-          creativity and technology, crafting user-friendly and visually
-          compelling digital experiences. <br />
-          <br />
-          I'm constantly pushing boundaries by exploring creative web
-          development tools like GSAP, ScrollTrigger, and Three.js, bringing
-          animations and engaging interactions to life. <br />Currently, I'm
-          pursuing my passion for design alongside development, focusing on
-          creating seamless experiences that captivate users and solve
-          real-world problems.
-        </p>
-        <br /><br />
-        <div class="page2-right-img"></div>
+        <div class="about-content">
+          <p class="intro">
+            Hi, I'm <span class="highlight">Naitik Khoriya</span>, a passionate
+            Full-Stack Web Developer with a growing expertise in UI/UX Design. I
+            thrive at the intersection of creativity and technology, crafting
+            user-friendly and visually compelling digital experiences.
+          </p>
+          <p class="skills">
+            I'm constantly pushing boundaries by exploring creative web
+            development tools like GSAP, ScrollTrigger, and Three.js, bringing
+            animations and engaging interactions to life.
+          </p>
+          <p class="current-focus">
+            Currently, I'm pursuing my passion for design alongside development,
+            focusing on creating seamless experiences that captivate users and
+            solve real-world problems.
+          </p>
+        </div>
+        <div class="page2-right-img">
+          <div class="image-overlay"></div>
+        </div>
       </div>
     </div>
     <div class="page3">
-      <main class="main-container">
-        <div class="card">
-          <img src="./assets/AirbnbApp.png" alt="Image 1" class="card-image" />
-          <h1 class="card-title">
-            AirBnB Web App
-            <br />
-            <span class="card-subtitle"
-              ><a
+      <div class="projects-header">
+        <h2 class="section-subtitle">My Work</h2>
+        <h1 class="section-title">Featured Projects</h1>
+      </div>
+      <div class="projects-container">
+        <div class="project-card" data-speed="0.8">
+          <div class="card-content">
+            <div class="card-image-wrapper">
+              <img
+                src="./assets/AirbnbApp.png"
+                alt="Airbnb Clone"
+                class="card-image"
+              />
+              <div class="card-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h2 class="card-title">AirBnB Web App</h2>
+              <div class="card-tags">
+                <span class="tech-tag">MERN Stack</span>
+                <span class="tech-tag">Authentication</span>
+                <span class="tech-tag">Booking System</span>
+              </div>
+              <p class="card-description">
+                Developed a full-stack Airbnb clone with user authentication,
+                property listings, booking functionality, and responsive design.
+                Built with Core JavaScript, Node, Express, and MongoDB.
+              </p>
+              <a
                 href="https://airbnb-project-uucp.onrender.com/listings"
                 target="_blank"
+                class="project-link"
               >
-                View Project</a
-              ></span
-            >
-          </h1>
-          <p class="card-description">
-            Developed a full-stack Airbnb clone with user authentication,
-            property listings, booking functionality, and responsive design.
-            Built with Core JavaScript, Node, Express, and MongoDB.
-          </p>
+                View Project <i class="ri-arrow-right-line"></i>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="card">
-          <img src="./assets//Colors.png" alt="Image 2" class="card-image" />
-          <h1 class="card-title">
-            Colors-Combinations
-            <br />
-            <span class="card-subtitle"
-              ><a
+
+        <div class="project-card" data-speed="0.6">
+          <div class="card-content">
+            <div class="card-image-wrapper">
+              <img
+                src="./assets/Colors.png"
+                alt="Colors Combinations"
+                class="card-image"
+              />
+              <div class="card-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h2 class="card-title">Colors-Combinations</h2>
+              <div class="card-tags">
+                <span class="tech-tag">GSAP</span>
+                <span class="tech-tag">ScrollTrigger</span>
+                <span class="tech-tag">Responsive Design</span>
+              </div>
+              <p class="card-description">
+                Created a full-stack Desiviski Chai Kullad brand platform with
+                vibrant color combinations, GSAP animations, ScrollTrigger
+                effects, and a responsive design for an engaging user
+                experience.
+              </p>
+              <a
                 href="https://colors-combinations.vercel.app/"
                 target="_blank"
+                class="project-link"
               >
-                View Project</a
-              ></span
-            >
-          </h1>
-          <p class="card-description">
-            Created a full-stack Desiviski Chai Kullad brand platform with
-            vibrant color combinations, GSAP animations, ScrollTrigger effects,
-            and a responsive design for an engaging user experience.
-          </p>
+                View Project <i class="ri-arrow-right-line"></i>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="card">
-          <img src="./assets/UberApp.png" alt="Image 3" class="card-image" />
-          <h1 class="card-title">
-            Uber App
-            <br />
-            <span class="card-subtitle"
-              ><a
+
+        <div class="project-card" data-speed="0.7">
+          <div class="card-content">
+            <div class="card-image-wrapper">
+              <img
+                src="./assets/UberApp.png"
+                alt="Uber Clone"
+                class="card-image"
+              />
+              <div class="card-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h2 class="card-title">Uber App</h2>
+              <div class="card-tags">
+                <span class="tech-tag">MERN Stack</span>
+                <span class="tech-tag">Real-time Tracking</span>
+                <span class="tech-tag">Payment Integration</span>
+              </div>
+              <p class="card-description">
+                Developed a full-stack Uber clone using the MERN stack,
+                featuring real-time ride booking, driver tracking, fare
+                calculation, user authentication, payment gateway integration,
+                and a responsive user interface.
+              </p>
+              <a
                 href="https://github.com/naitikhoriya1/Uber.git"
                 target="_blank"
-                >View Project</a
-              ></span
-            >
-          </h1>
-          <p class="card-description">
-            Developed a full-stack Uber clone using the MERN stack, featuring
-            real-time ride booking, driver tracking, fare calculation, user
-            authentication, payment gateway integration, and a responsive user
-            interface.
-          </p>
+                class="project-link"
+              >
+                View Project <i class="ri-arrow-right-line"></i>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="card">
-          <img src="./assets/ChaiApp.png" alt="Image 4" class="card-image" />
-          <h1 class="card-title">
-            Desiviski Chai Kullad
-            <br />
-            <span class="card-subtitle"
-              ><a href="https://desi-viski-chai.vercel.app/" target="_blank"
-                >View Project</a
-              ></span
-            >
-          </h1>
-          <p class="card-description">
-            Designed a full-stack Desiviski Chai Kullad brand platform featuring
-            product showcasing, online ordering, user authentication, and a
-            responsive UI to enhance customer engagement and brand visibility.
-          </p>
+
+        <div class="project-card" data-speed="0.9">
+          <div class="card-content">
+            <div class="card-image-wrapper">
+              <img
+                src="./assets/ChaiApp.png"
+                alt="Desiviski Chai"
+                class="card-image"
+              />
+              <div class="card-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h2 class="card-title">Desiviski Chai Kullad</h2>
+              <div class="card-tags">
+                <span class="tech-tag">Full Stack</span>
+                <span class="tech-tag">E-commerce</span>
+                <span class="tech-tag">UI/UX Design</span>
+              </div>
+              <p class="card-description">
+                Designed a full-stack Desiviski Chai Kullad brand platform
+                featuring product showcasing, online ordering, user
+                authentication, and a responsive UI to enhance customer
+                engagement and brand visibility.
+              </p>
+              <a
+                href="https://desi-viski-chai.vercel.app/"
+                target="_blank"
+                class="project-link"
+              >
+                View Project <i class="ri-arrow-right-line"></i>
+              </a>
+            </div>
+          </div>
         </div>
-      </main>
+      </div>
     </div>
     <div class="gap"></div>
     <div class="page4">
