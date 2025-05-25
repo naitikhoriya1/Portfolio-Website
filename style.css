@@ -26,6 +26,7 @@
   font-family: "vilaka";
   src: url("./font/Vilaka\ Modern\ Serif\ Font.ttf") format("woff2");
 }
+
 html.lenis,
 html.lenis body {
   height: auto;
@@ -714,4 +715,97 @@ html {
 }
 .footer-link a:hover {
   color: #331628;
+}
+
+/* Fullscreen Menu Overlay */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(30, 16, 5, 0.97);
+  color: #f3e4c7;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.menu-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.menu-close {
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  background: none;
+  border: none;
+  color: #fbefd9;
+  font-size: 3rem;
+  cursor: pointer;
+  z-index: 10001;
+  transition: color 0.2s;
+}
+.menu-close:hover {
+  color: #e07b39;
+}
+.menu-nav ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 10rem;
+  display: flex;
+  /* flex-direction: column; */
+  gap: 2.5rem;
+  align-items: top;
+}
+.menu-link {
+  color: #fbefd9;
+  font-size: 5rem;
+  /* padding-bottom: 10rem; */
+  /* text-decoration: none; */
+  font-family: "vilaka", sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition: color 0.2s;
+}
+.menu-link:hover {
+  color: #e07b39;
+  /* font-size: 6rem; */
+}
+@media (max-width: 600px) {
+  .menu-link {
+    font-size: 1.5rem;
+  }
+  .menu-close {
+    top: 20px;
+    right: 20px;
+    font-size: 2.2rem;
+  }
+}
+
+body {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+#imgs {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform-origin: 0 0 -50vw;
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25vw;
+    height: 45vh;
+    transform-origin: 50% 50% -50vw;
+    transform: translate3d(-50%, -50%, 0);
+    transform-style: preserve-3d;
+  }
 }

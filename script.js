@@ -43,3 +43,57 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     });
   });
 });
+
+// Fullscreen menu open/close logic
+const menuToggle = document.getElementById("menu-toggle");
+const menuOverlay = document.getElementById("menu-overlay");
+const menuClose = document.getElementById("menu-close");
+const menuLinks = document.querySelectorAll(".menu-link");
+
+if (menuToggle && menuOverlay && menuClose) {
+  menuToggle.addEventListener("click", () => {
+    menuOverlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+  });
+  menuClose.addEventListener("click", () => {
+    menuOverlay.classList.remove("active");
+    document.body.style.overflow = "";
+  });
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      menuOverlay.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+  });
+}
+
+// animation on menu
+const imgs = document.querySelectorAll("#imgs img");
+const total = imgs.length;
+const rotateStep = 360 / total;
+
+imgs.forEach((img, i) => {
+  const rotate = i * rotateStep;
+  img.style.transform = `translate3d(-50%, -50%, 0) rotate3d(0, 1, 0, ${rotate}deg)`;
+});
+
+const container = document.getElementById("imgs");
+let docWidth = document.body.clientWidth;
+let targetRotate = 0;
+let currentRotate = 0;
+
+window.addEventListener("resize", () => {
+  docWidth = document.body.clientWidth;
+});
+
+document.addEventListener("mousemove", (e) => {
+  targetRotate = (e.pageX * 360) / docWidth;
+});
+
+function animate() {
+  currentRotate += (targetRotate - currentRotate) * 0.1;
+  container.style.transform = `rotate3d(0, 1, 0, ${-currentRotate}deg)`;
+  requestAnimationFrame(animate);
+}
+
+animate();
