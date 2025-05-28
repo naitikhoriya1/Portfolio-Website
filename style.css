@@ -57,12 +57,15 @@ html {
   /* background-color: #3f68a6; */
   overflow-x: hidden;
 }
+
 .page1 {
   height: 100vh;
   width: 100vw;
   color: cornsilk;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1)),
+    url("./assets/page1-background.webp"); */
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1)),
-    url("./assets/page1-background.webp");
+    url("https://i.pinimg.com/736x/ab/e2/62/abe262fa3a79d88c42da57d6ece03fa1.jpg");
   background-size: cover;
   background-position: center;
   font-family: "Saisei", sans-serif;
