@@ -809,3 +809,826 @@ body {
     transform-style: preserve-3d;
   }
 }
+
+/* Responsive styles for Page 1 */
+@media screen and (max-width: 1200px) {
+  .page1-content-left h1.glitch {
+    font-size: 12rem;
+  }
+
+  .role-tags {
+    gap: 12px;
+  }
+
+  .tag {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .page1-content {
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .page1-content-left {
+    width: 100%;
+    text-align: center;
+  }
+
+  .page1-content-left h1.glitch {
+    font-size: 10rem;
+    margin-bottom: 40px;
+  }
+
+  .page1-content-right {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .role-tags {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .tag {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+
+  .scroll-indicator {
+    bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .navbar-left h1 {
+    font-size: 1.5rem;
+  }
+
+  .navbar-right h2 {
+    font-size: 0.9rem;
+  }
+
+  .page1-content-left h1.glitch {
+    font-size: 8rem;
+  }
+
+  .role-tags {
+    gap: 8px;
+  }
+
+  .tag {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .scroll-indicator {
+    bottom: 20px;
+  }
+
+  .mouse {
+    width: 25px;
+    height: 40px;
+  }
+
+  .wheel {
+    width: 3px;
+    height: 6px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .navbar {
+    height: 8%;
+  }
+
+  .navbar-left h1 {
+    font-size: 1.2rem;
+  }
+
+  .navbar-right {
+    gap: 20px;
+  }
+
+  .navbar-right h2 {
+    font-size: 0.8rem;
+  }
+
+  .page1-content {
+    padding: 0 20px;
+  }
+
+  .page1-content-left h1.glitch {
+    font-size: 6rem;
+  }
+
+  .role-tags {
+    gap: 6px;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+
+  .scroll-indicator {
+    bottom: 15px;
+  }
+
+  .mouse {
+    width: 20px;
+    height: 35px;
+  }
+
+  .wheel {
+    width: 2px;
+    height: 5px;
+  }
+
+  .arrow span {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* Landscape Mode */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .page1-content {
+    padding: 0 40px;
+  }
+
+  .page1-content-left h1.glitch {
+    font-size: 5rem;
+  }
+
+  .role-tags {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+
+  .scroll-indicator {
+    bottom: 10px;
+  }
+}
+
+/* Menu Overlay Responsive Styles */
+@media screen and (max-width: 768px) {
+  .menu-overlay {
+    padding: 20px;
+  }
+
+  .menu-nav ul {
+    gap: 2rem;
+  }
+
+  .menu-link {
+    font-size: 3rem;
+  }
+
+  .menu-close {
+    top: 20px;
+    right: 20px;
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .menu-nav ul {
+    gap: 1.5rem;
+  }
+
+  .menu-link {
+    font-size: 2.5rem;
+  }
+
+  .menu-close {
+    top: 15px;
+    right: 15px;
+    font-size: 2rem;
+  }
+}
+
+/* 3D Image Gallery Responsive Styles */
+@media screen and (max-width: 992px) {
+  #imgs img {
+    width: 30vw;
+    height: 40vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #imgs {
+    top: 60%;
+  }
+
+  #imgs img {
+    width: 35vw;
+    height: 35vh;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #imgs {
+    top: 50%;
+  }
+
+  #imgs img {
+    width: 40vw;
+    height: 30vh;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+  .tag:hover {
+    transform: none;
+  }
+
+  .menu-link:hover {
+    color: #fbefd9;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .glitch,
+  .scroll-indicator,
+  .mouse,
+  .wheel,
+  .arrow span,
+  .tag,
+  .menu-link {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Responsive styles for Page 2 */
+@media screen and (max-width: 1200px) {
+  .page2 {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .page2-left {
+    width: 100%;
+    height: auto;
+    padding: 100px 5% 50px;
+  }
+
+  .page2-middle {
+    width: 100%;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .page2-right {
+    width: 100%;
+    height: auto;
+    padding: 50px 5%;
+  }
+
+  .page2-right-img {
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .page2-left .quote {
+    font-size: 3.5rem;
+  }
+
+  .page2-right-img {
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .page2-left {
+    padding: 80px 5% 40px;
+  }
+
+  .section-title {
+    margin-bottom: 30px;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .role {
+    font-size: 1.2rem;
+  }
+
+  .page2-left .quote {
+    font-size: 3rem;
+  }
+
+  .page2-middle {
+    height: 40vh;
+  }
+
+  .page2-right {
+    padding: 40px 5%;
+  }
+
+  .about-content {
+    gap: 15px;
+  }
+
+  .intro,
+  .skills,
+  .current-focus {
+    font-size: 0.85rem;
+  }
+
+  .page2-right-img {
+    height: 200px;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .page2-left {
+    padding: 70px 5% 30px;
+  }
+
+  .section-title {
+    margin-bottom: 25px;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .role {
+    font-size: 1.1rem;
+  }
+
+  .page2-left .quote {
+    font-size: 2.5rem;
+  }
+
+  .page2-middle {
+    height: 55vh;
+  }
+
+  .page2-right {
+    padding: 30px 5%;
+  }
+
+  .about-content {
+    gap: 12px;
+  }
+
+  .intro,
+  .skills,
+  .current-focus {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .page2-right-img {
+    height: 180px;
+    margin-top: 25px;
+  }
+}
+
+/* Landscape Mode for Page 2 */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .page2 {
+    flex-direction: row;
+    height: 100vh;
+  }
+
+  .page2-left {
+    width: 30%;
+    height: 100%;
+    padding: 80px 3% 40px;
+  }
+
+  .page2-middle {
+    width: 40%;
+    height: 100%;
+  }
+
+  .page2-right {
+    width: 50%;
+    height: 100%;
+    padding: 80px 3% 40px;
+  }
+
+  .page2-left .quote {
+    font-size: 2.5rem;
+  }
+
+  .page2-right-img {
+    height: 150px;
+    margin-top: 20px;
+  }
+}
+
+/* Responsive styles for Page 4 */
+@media screen and (max-width: 1200px) {
+  .page4 {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .page4-left {
+    width: 100%;
+    padding: 80px 5% 40px;
+  }
+
+  .page4-left h2 {
+    position: relative;
+    bottom: auto;
+    margin-top: 40px;
+    font-size: 1.8rem;
+  }
+
+  .page4-right {
+    width: 100%;
+    height: auto;
+  }
+
+  .page4-right-up {
+    height: auto;
+    padding: 40px 5%;
+    gap: 30px;
+  }
+
+  .page4-right-up-img1,
+  .page4-right-up-img2 {
+    width: 45%;
+    height: auto;
+  }
+
+  .page4-right-up-img1 img,
+  .page4-right-up-img2 img {
+    width: 100%;
+    height: auto;
+  }
+
+  .page4-right-down {
+    padding: 0 5% 40px;
+  }
+
+  .page4-right-down-img1 {
+    width: 45%;
+    height: auto;
+  }
+
+  .page4-right-down-img1 img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .page4-left h2 {
+    font-size: 1.6rem;
+  }
+
+  .page4-right-up-img1,
+  .page4-right-up-img2,
+  .page4-right-down-img1 {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .page4-left {
+    padding: 60px 5% 30px;
+  }
+
+  .page4-left h5 {
+    font-size: 0.9rem;
+  }
+
+  .page4-left h2 {
+    font-size: 1.4rem;
+    margin-top: 30px;
+  }
+
+  .page4-right-up {
+    padding: 30px 5%;
+    gap: 20px;
+  }
+
+  .page4-right-up-img1,
+  .page4-right-up-img2,
+  .page4-right-down-img1 {
+    width: 100%;
+  }
+
+  .page4-right-up-img1 h5,
+  .page4-right-up-img2 h5,
+  .page4-right-down-img1 h5 {
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
+
+  .page4-right-down {
+    padding: 0 5% 30px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .page4-left {
+    padding: 50px 5% 25px;
+  }
+
+  .page4-left h5 {
+    font-size: 0.8rem;
+  }
+
+  .page4-left h2 {
+    font-size: 1.2rem;
+    margin-top: 25px;
+  }
+
+  .page4-right-up {
+    padding: 25px 5%;
+    gap: 15px;
+  }
+
+  .page4-right-up-img1 h5,
+  .page4-right-up-img2 h5,
+  .page4-right-down-img1 h5 {
+    font-size: 0.8rem;
+    margin-top: 8px;
+  }
+
+  .page4-right-down {
+    padding: 0 5% 25px;
+  }
+}
+
+/* Landscape Mode for Page 4 */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .page4 {
+    flex-direction: row;
+    height: 100vh;
+  }
+
+  .page4-left {
+    width: 40%;
+    padding: 60px 3% 40px;
+  }
+
+  .page4-left h2 {
+    position: relative;
+    bottom: auto;
+    margin-top: 30px;
+    font-size: 1.3rem;
+  }
+
+  .page4-right {
+    width: 60%;
+    height: 100%;
+  }
+
+  .page4-right-up {
+    height: 60%;
+    padding: 40px 3%;
+  }
+
+  .page4-right-down {
+    height: 40%;
+    padding: 0 3% 40px;
+  }
+
+  .page4-right-up-img1,
+  .page4-right-up-img2,
+  .page4-right-down-img1 {
+    width: 45%;
+  }
+}
+
+/* Responsive styles for Page 5 and Footer */
+@media screen and (max-width: 1200px) {
+  .page5 {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .page5-up,
+  .page5-down,
+  .page5-middle {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .page5-left-img,
+  .page5-right-img {
+    width: 80%;
+    height: auto;
+  }
+
+  .page5-left-img img,
+  .page5-right-img img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 40px;
+    padding: 60px 5% 40px;
+  }
+
+  .footer-left h1 {
+    font-size: 4rem;
+  }
+
+  .footer-right {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .gmail h2 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .page5-left-img,
+  .page5-right-img {
+    width: 90%;
+  }
+
+  .footer-left h1 {
+    font-size: 3.5rem;
+  }
+
+  .gmail h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .page5-up,
+  .page5-down,
+  .page5-middle {
+    padding: 30px 0;
+  }
+
+  .page5-left,
+  .page5-right {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .page5-left-img,
+  .page5-right-img {
+    width: 85%;
+  }
+
+  .page5-left-img h5,
+  .page5-right-img h5 {
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
+
+  .footer {
+    padding: 40px 5% 30px;
+    gap: 30px;
+  }
+
+  .footer-left h1 {
+    font-size: 3rem;
+  }
+
+  .footer-left h3 {
+    font-size: 1rem;
+  }
+
+  .gmail h2 {
+    font-size: 1.5rem;
+  }
+
+  .footer-link {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .footer-link a {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .page5-up,
+  .page5-down,
+  .page5-middle {
+    padding: 20px 0;
+  }
+
+  .page5-left-img,
+  .page5-right-img {
+    width: 90%;
+  }
+
+  .page5-left-img h5,
+  .page5-right-img h5 {
+    font-size: 0.8rem;
+    margin-top: 8px;
+  }
+
+  .footer {
+    padding: 30px 5% 20px;
+    gap: 25px;
+  }
+
+  .footer-left h1 {
+    font-size: 2.5rem;
+  }
+
+  .footer-left h3 {
+    font-size: 0.9rem;
+  }
+
+  .gmail h2 {
+    font-size: 1.2rem;
+  }
+
+  .footer-link {
+    gap: 12px;
+  }
+
+  .footer-link a {
+    font-size: 0.8rem;
+  }
+}
+
+/* Landscape Mode for Page 5 and Footer */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .page5 {
+    height: auto;
+  }
+
+  .page5-up,
+  .page5-down,
+  .page5-middle {
+    height: auto;
+    padding: 30px 0;
+  }
+
+  .page5-left-img,
+  .page5-right-img {
+    width: 60%;
+    height: auto;
+  }
+
+  .footer {
+    flex-direction: row;
+    padding: 40px 5%;
+  }
+
+  .footer-left h1 {
+    font-size: 3rem;
+  }
+
+  .footer-right {
+    width: 50%;
+  }
+
+  .gmail h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+  .footer-link a:hover {
+    color: #331628;
+  }
+}
