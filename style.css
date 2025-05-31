@@ -565,21 +565,21 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: end;
-  padding: 2% 5%;
+  padding: 2% 5% 10% 5%;
 }
 .page4-right-up-img1 {
-  height: 90%;
-  width: 30%;
+  height: 65%;
+  width: 40%;
   /* background-color: green; */
 }
 .page4-right-up-img1 img {
-  width: 80%;
+  width: 75%;
   background-size: cover;
   background-position: center;
 }
 .page4-right-up-img2 {
-  height: 70%;
-  width: 30%;
+  height: 65%;
+  width: 40%;
   /* background-color: green; */
 }
 .page4-right-up-img2 img {
@@ -596,13 +596,13 @@ html {
   /* background-color: red; */
 }
 .page4-right-down-img1 {
-  height: 100%;
-  width: 30%;
+  height: 60%;
+  width: 40%;
   /* background-color: green; */
 }
 .page4-right-down-img1 img {
-  right: 30%;
-  width: 60%;
+  right: 25%;
+  width: 55%;
   background-size: cover;
   background-position: center;
 }

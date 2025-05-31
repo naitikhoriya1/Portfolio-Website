@@ -97,3 +97,37 @@ function animate() {
 }
 
 animate();
+
+// Parallax effect for page4 images
+gsap.utils
+  .toArray(
+    ".page4-right-up-img1 img, .page4-right-up-img2 img, .page4-right-down-img1 img"
+  )
+  .forEach((img) => {
+    gsap.to(img, {
+      yPercent: -30,
+      ease: "none",
+      scrollTrigger: {
+        trigger: img,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+  });
+
+// Parallax effect for page5 images
+gsap.utils
+  .toArray(".page5-left-img img, .page5-right-img img")
+  .forEach((img) => {
+    gsap.to(img, {
+      yPercent: -20,
+      ease: "none",
+      scrollTrigger: {
+        trigger: img,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+  });
