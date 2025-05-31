@@ -131,3 +131,56 @@ gsap.utils
       },
     });
   });
+
+// cursor
+(() => {
+  const cursor = document.querySelector(".cursor");
+
+  document.addEventListener("mousemove", (e) => {
+    cursor.setAttribute(
+      "style",
+      `top:  ${e.pageY - 25}px; left: ${e.pageX - 25}px;`
+    );
+  });
+
+  document.addEventListener("click", () => {
+    console.log("%c Click...!!!", "font-size: 20px; color:mediumspringgreen;");
+
+    cursor.classList.add("cursor--expand");
+    console.log(cursor.classList);
+
+    setTimeout(() => {
+      cursor.classList.remove("cursor--expand");
+    }, 500);
+  });
+})();
+
+// Particle cursor implementation
+(async () => {
+  const { particlesCursor } = await import(
+    "https://unpkg.com/threejs-toys@0.0.8/build/threejs-toys.module.cdn.min.js"
+  );
+
+  const pc = particlesCursor({
+    el: document.getElementById("particle-cursor"),
+    gpgpuSize: 512,
+    colors: [0x00ff00, 0x0000ff],
+    color: 0xff0000,
+    coordScale: 0.5,
+    noiseIntensity: 0.001,
+    noiseTimeCoef: 0.0001,
+    pointSize: 5,
+    pointDecay: 0.0025,
+    sleepRadiusX: 250,
+    sleepRadiusY: 250,
+    sleepTimeCoefX: 0.001,
+    sleepTimeCoefY: 0.002,
+  });
+
+  document.body.addEventListener("click", () => {
+    pc.uniforms.uColor.value.set(Math.random() * 0xffffff);
+    pc.uniforms.uCoordScale.value = 0.001 + Math.random() * 2;
+    pc.uniforms.uNoiseIntensity.value = 0.0001 + Math.random() * 0.001;
+    pc.uniforms.uPointSize.value = 1 + Math.random() * 10;
+  });
+})();
