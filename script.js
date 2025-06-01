@@ -184,3 +184,28 @@ gsap.utils
     pc.uniforms.uPointSize.value = 1 + Math.random() * 10;
   });
 })();
+
+// Cursor parallax effect for page5 images
+const page5Images = document.querySelectorAll(
+  ".page5-left-img img, .page5-right-img img"
+);
+
+document.addEventListener("mousemove", (e) => {
+  const mouseX = e.clientX / window.innerWidth;
+  const mouseY = e.clientY / window.innerHeight;
+
+  page5Images.forEach((img) => {
+    const speed = img.getAttribute("data-speed") || 0.1;
+    const x = (mouseX - 0.5) * speed * 100;
+    const y = (mouseY - 0.5) * speed * 100;
+
+    img.style.transform = `translate(${x}px, ${y}px)`;
+  });
+});
+
+// Reset position when mouse leaves window
+document.addEventListener("mouseleave", () => {
+  page5Images.forEach((img) => {
+    img.style.transform = "translate(0px, 0px)";
+  });
+});
