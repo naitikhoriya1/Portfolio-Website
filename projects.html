@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfoilio 🦁-ethic</title>
+    <title>Projects - ethic</title>
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
@@ -13,11 +13,10 @@
   <body>
     <div id="particle-cursor"></div>
     <div class="cursor"></div>
-    <div class="page1">
-      <!-- <div class="menu"></div> -->
+    <div class="page1" style="height: 10vh">
       <div class="navbar">
         <div class="navbar-left">
-          <h1>ethic</h1>
+          <h1><a href="index.html">ethic</a></h1>
         </div>
         <div class="navbar-right">
           <h2><a href="index.html">Home</a></h2>
@@ -39,94 +38,16 @@
             <li><a href="contact.html" class="menu-link">Contact</a></li>
           </ul>
         </nav>
-        <div id="imgs">
-          <img src="./MyImg/scroll1.jpg" alt="" />
-          <img src="./MyImg/scroll2.jpg" alt="" />
-          <img src="./MyImg/scroll3.jpg" alt="" />
-          <img src="./MyImg/scroll4.jpg" alt="" />
-          <img src="./MyImg/scroll5.jpg" alt="" />
-          <img src="./MyImg/scroll6.jpg" alt="" />
-          <img src="./MyImg/scroll7.jpg" alt="" />
-          <img src="./MyImg/scroll8.jpeg" alt="" />
-          <img src="./MyImg/scroll9.jpeg" alt="" />
-          <img src="./MyImg/scroll10.jpeg" alt="" />
-        </div>
-      </div>
-      <div class="page1-content">
-        <div class="page1-content-left">
-          <h1 class="glitch" data-text="NAITIK">
-            Creative <br />
-            Frontend <br />
-            Developer
-          </h1>
-          <div class="scroll-indicator">
-            <div class="mouse">
-              <div class="wheel"></div>
-            </div>
-            <div class="arrow">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-        </div>
-        <div class="page1-content-right">
-          <div class="role-tags">
-            <span class="tag">CSE'25 UG @BTU 🎓</span>
-            <span class="tag">Creative Web Developer 🧑‍💻</span>
-            <span class="tag">@Gssoc-Ext '24 🌐</span>
-            <span class="tag">@Hacktoberfest'23 - '24 🎉</span>
-            <span class="tag"
-              >HTML | CSS | JS | React | Bootstrap | Tailwind CSS | GSAP |
-              ScrollTrigger
-            </span>
-            <span class="tag"> Three.js | Shery.js 🦁 </span>
-          </div>
-        </div>
       </div>
     </div>
-    <div class="page2">
-      <div class="page2-left">
-        <div class="section-title">
-          <span class="subtitle">About Me</span>
-          <h2 class="title">Naitik Khoriya</h2>
-          <h3 class="role">Creative Web Developer</h3>
-        </div>
-        <h1 class="quote">Every Line Tells a Story</h1>
+
+    <div class="projects-page">
+      <div class="projects-hero">
+        <h1 class="glitch" data-text="My Projects">My Projects</h1>
+        <div class="projects-subtitle">Creative Web Development</div>
       </div>
-      <div class="page2-middle">
-        <div class="image-overlay"></div>
-      </div>
-      <div class="page2-right">
-        <div class="about-content">
-          <p class="intro">
-            Hi, I'm <span class="highlight">Naitik Khoriya</span>, a passionate
-            Full-Stack Web Developer with a growing expertise in UI/UX Design. I
-            thrive at the intersection of creativity and technology, crafting
-            user-friendly and visually compelling digital experiences.
-          </p>
-          <p class="skills">
-            I'm constantly pushing boundaries by exploring creative web
-            development tools like GSAP, ScrollTrigger, and Three.js, bringing
-            animations and engaging interactions to life.
-          </p>
-          <p class="current-focus">
-            Currently, I'm pursuing my passion for design alongside development,
-            focusing on creating seamless experiences that captivate users and
-            solve real-world problems.
-          </p>
-        </div>
-        <div class="page2-right-img">
-          <div class="image-overlay"></div>
-        </div>
-      </div>
-    </div>
-    <div class="page3">
-      <div class="projects-header">
-        <h2 class="section-subtitle">My Work</h2>
-        <h1 class="section-title">Featured Projects</h1>
-      </div>
-      <div class="projects-container">
+
+      <div class="projects-content">
         <div class="project-card" data-speed="0.8">
           <div class="card-content">
             <div class="card-image-wrapper">
@@ -149,13 +70,22 @@
                 property listings, booking functionality, and responsive design.
                 Built with Core JavaScript, Node, Express, and MongoDB.
               </p>
-              <a
-                href="https://airbnb-project-uucp.onrender.com/listings"
-                target="_blank"
-                class="project-link"
-              >
-                View Project <i class="ri-arrow-right-line"></i>
-              </a>
+              <div class="project-links">
+                <a
+                  href="https://airbnb-project-uucp.onrender.com/listings"
+                  target="_blank"
+                  class="project-link"
+                >
+                  Live Demo <i class="ri-external-link-line"></i>
+                </a>
+                <a
+                  href="https://github.com/naitikhoriya1/Airbnb"
+                  target="_blank"
+                  class="project-link"
+                >
+                  Source Code <i class="ri-github-fill"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -183,13 +113,22 @@
                 effects, and a responsive design for an engaging user
                 experience.
               </p>
-              <a
-                href="https://colors-combinations.vercel.app/"
-                target="_blank"
-                class="project-link"
-              >
-                View Project <i class="ri-arrow-right-line"></i>
-              </a>
+              <div class="project-links">
+                <a
+                  href="https://colors-combinations.vercel.app/"
+                  target="_blank"
+                  class="project-link"
+                >
+                  Live Demo <i class="ri-external-link-line"></i>
+                </a>
+                <a
+                  href="https://github.com/naitikhoriya1/Colors-Combinations"
+                  target="_blank"
+                  class="project-link"
+                >
+                  Source Code <i class="ri-github-fill"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -217,13 +156,15 @@
                 calculation, user authentication, payment gateway integration,
                 and a responsive user interface.
               </p>
-              <a
-                href="https://github.com/naitikhoriya1/Uber.git"
-                target="_blank"
-                class="project-link"
-              >
-                View Project <i class="ri-arrow-right-line"></i>
-              </a>
+              <div class="project-links">
+                <a
+                  href="https://github.com/naitikhoriya1/Uber"
+                  target="_blank"
+                  class="project-link"
+                >
+                  Source Code <i class="ri-github-fill"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -251,44 +192,68 @@
                 authentication, and a responsive UI to enhance customer
                 engagement and brand visibility.
               </p>
-              <a
-                href="https://desi-viski-chai.vercel.app/"
-                target="_blank"
-                class="project-link"
-              >
-                View Project <i class="ri-arrow-right-line"></i>
-              </a>
+              <div class="project-links">
+                <a
+                  href="https://desi-viski-chai.vercel.app/"
+                  target="_blank"
+                  class="project-link"
+                >
+                  Live Demo <i class="ri-external-link-line"></i>
+                </a>
+                <a
+                  href="https://github.com/naitikhoriya1/kulladwithethic"
+                  target="_blank"
+                  class="project-link"
+                >
+                  Source Code <i class="ri-github-fill"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="gap"></div>
-    <div class="page4">
-      <div class="page4-left">
-        <h5>OPEN SOURCE CONTRIBUTIONS</h5>
-        <h2>
-          Contributed to open-source projects, enhancing <br />
-          code quality, <br />
-          and collaborating with developers <br />worldwide to create innovative
-          solutions.
-        </h2>
-      </div>
-      <div class="page4-right">
-        <div class="page4-right-up">
-          <div class="page4-right-up-img1">
-            <img src="./assets/design1.jpeg" alt="" />
-            <h5>1. Requirements Gathering</h5>
-          </div>
-          <div class="page4-right-up-img2">
-            <img src="./assets/design2.jpeg" alt="" />
-            <h5>2. Designing</h5>
+
+    <div class="page5">
+      <div class="page5-up">
+        <div class="page5-left">
+          <div class="page5-left-img">
+            <img src="./assets/project1.png" alt="" data-speed="0.15" />
+            <h5>landing page 1</h5>
           </div>
         </div>
-        <div class="page4-right-down">
-          <div class="page4-right-down-img1">
-            <img src="./assets/design3.jpeg" alt="" />
-            <h5>3. Development</h5>
+        <div class="page5-right">
+          <div class="page5-right-img">
+            <img src="./assets/project2.png" alt="" data-speed="0.2" />
+            <h5>landing page 2</h5>
+          </div>
+        </div>
+      </div>
+      <div class="page5-down">
+        <div class="page5-left">
+          <div class="page5-left-img">
+            <img src="./assets/project3.png" alt="" data-speed="0.12" />
+            <h5>landing page 3</h5>
+          </div>
+        </div>
+        <div class="page5-right">
+          <div class="page5-right-img">
+            <img src="./assets/project4.png" alt="" data-speed="0.18" />
+            <h5>landing page 4</h5>
+          </div>
+        </div>
+      </div>
+      <div class="page5-middle">
+        <div class="page5-left">
+          <div class="page5-left-img">
+            <img src="./assets/project5.png" alt="" data-speed="0.14" />
+            <h5>landing page 5</h5>
+          </div>
+        </div>
+        <div class="page5-right">
+          <div class="page5-right-img">
+            <img src="./assets/project6.png" alt="" data-speed="0.26" />
+            <h5>landing page 6</h5>
           </div>
         </div>
       </div>
@@ -331,7 +296,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-
     <script src="script.js"></script>
   </body>
 </html>

@@ -34,38 +34,45 @@ document.addEventListener("DOMContentLoaded", () => {
   handleParallax();
 });
 
-// Smooth scroll for navigation
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({
-      behavior: "smooth",
+// Navigation handling
+document.addEventListener("DOMContentLoaded", function () {
+  // Handle navigation links
+  const navLinks = document.querySelectorAll(".navbar-right a, .menu-link");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      // Remove any active states
+      navLinks.forEach((l) => l.classList.remove("active"));
+      // Add active state to clicked link
+      this.classList.add("active");
     });
   });
-});
 
-// Fullscreen menu open/close logic
-const menuToggle = document.getElementById("menu-toggle");
-const menuOverlay = document.getElementById("menu-overlay");
-const menuClose = document.getElementById("menu-close");
-const menuLinks = document.querySelectorAll(".menu-link");
+  // Menu toggle functionality
+  const menuToggle = document.getElementById("menu-toggle");
+  const menuOverlay = document.getElementById("menu-overlay");
+  const menuClose = document.getElementById("menu-close");
 
-if (menuToggle && menuOverlay && menuClose) {
-  menuToggle.addEventListener("click", () => {
-    menuOverlay.classList.add("active");
-    document.body.style.overflow = "hidden";
-  });
-  menuClose.addEventListener("click", () => {
-    menuOverlay.classList.remove("active");
-    document.body.style.overflow = "";
-  });
-  menuLinks.forEach((link) => {
-    link.addEventListener("click", () => {
+  if (menuToggle && menuOverlay && menuClose) {
+    menuToggle.addEventListener("click", function () {
+      menuOverlay.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+
+    menuClose.addEventListener("click", function () {
       menuOverlay.classList.remove("active");
       document.body.style.overflow = "";
     });
-  });
-}
+
+    // Close menu when clicking a link
+    const menuLinks = document.querySelectorAll(".menu-link");
+    menuLinks.forEach((link) => {
+      link.addEventListener("click", function () {
+        menuOverlay.classList.remove("active");
+        document.body.style.overflow = "";
+      });
+    });
+  }
+});
 
 // animation on menu
 const imgs = document.querySelectorAll("#imgs img");

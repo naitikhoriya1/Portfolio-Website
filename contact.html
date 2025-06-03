@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - ethic</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  </head>
+  <body>
+    <div id="particle-cursor"></div>
+    <div class="cursor"></div>
+    <div class="page1" style="height: 10vh">
+      <div class="navbar">
+        <div class="navbar-left">
+          <h1><a href="index.html">ethic</a></h1>
+        </div>
+        <div class="navbar-right">
+          <h2><a href="index.html">Home</a></h2>
+          <h2><a href="about.html">About</a></h2>
+          <h2><a href="projects.html">Projects</a></h2>
+          <h2><a href="contact.html">Contact</a></h2>
+          <i class="ri-menu-3-fill" id="menu-toggle">Menu</i>
+        </div>
+      </div>
+      <div class="menu-overlay" id="menu-overlay">
+        <button class="menu-close" id="menu-close" aria-label="Close menu">
+          &times;
+        </button>
+        <nav class="menu-nav">
+          <ul>
+            <li><a href="index.html" class="menu-link">Home</a></li>
+            <li><a href="about.html" class="menu-link">About</a></li>
+            <li><a href="projects.html" class="menu-link">Projects</a></li>
+            <li><a href="contact.html" class="menu-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="contact-page">
+      <div class="contact-hero">
+        <h1 class="glitch" data-text="Get in Touch">Get in Touch</h1>
+        <div class="contact-subtitle">
+          Let's Create Something Amazing Together
+        </div>
+      </div>
+
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="ri-mail-fill"></i>
+            </div>
+            <h3>Email</h3>
+            <p>ethicalkhoriya@gmail.com</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="ri-map-pin-fill"></i>
+            </div>
+            <h3>Location</h3>
+            <p>Bikaner, Rajasthan, India</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="ri-github-fill"></i>
+            </div>
+            <h3>GitHub</h3>
+            <p>@naitikhoriya1</p>
+          </div>
+        </div>
+
+        <div class="contact-form-container">
+          <form id="contact-form" class="contact-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="submit-btn">
+              Send Message <i class="ri-send-plane-fill"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="contact-animation">
+        <img
+          src="./assets/contact-animation.gif"
+          alt="Contact Animation"
+          class="floating-animation"
+        />
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-left">
+        <h1>Let's Collaborate</h1>
+        <h3>© ethical_khoriya</h3>
+      </div>
+      <div class="footer-right">
+        <div class="gmail">
+          <h2>ethicalkhoriya@gmail.com</h2>
+        </div>
+        <div class="footer-link">
+          <a href="https://github.com/naitikhoriya1" target="_blank"
+            >Github <i class="ri-github-fill"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/naitik-khoriya-4962a9229/"
+            target="_blank"
+            >LinkedIn <i class="ri-linkedin-fill"></i
+          ></a>
+          <a href="https://www.instagram.com/ethical_khoriya/" target="_blank"
+            >Instagram <i class="ri-instagram-fill"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="script.js"></script>
+    <script>
+      // Initialize EmailJS with your public key
+      (function () {
+        emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+      })();
+
+      // Handle form submission
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Show loading state
+          const submitBtn = document.querySelector(".submit-btn");
+          const originalBtnText = submitBtn.innerHTML;
+          submitBtn.innerHTML = 'Sending... <i class="ri-loader-4-line"></i>';
+          submitBtn.disabled = true;
+
+          const templateParams = {
+            from_name: document.getElementById("name").value,
+            from_email: document.getElementById("email").value,
+            subject: document.getElementById("subject").value,
+            message: document.getElementById("message").value,
+            to_email: "ethicalkhoriya@gmail.com",
+          };
+
+          emailjs
+            .send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+            .then(
+              function (response) {
+                // Show success message
+                submitBtn.innerHTML =
+                  'Message Sent! <i class="ri-check-line"></i>';
+                submitBtn.style.background = "#4CAF50";
+                document.getElementById("contact-form").reset();
+
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                  submitBtn.innerHTML = originalBtnText;
+                  submitBtn.style.background = "#fff";
+                  submitBtn.disabled = false;
+                }, 3000);
+              },
+              function (error) {
+                // Show error message
+                submitBtn.innerHTML =
+                  'Failed to Send <i class="ri-error-warning-line"></i>';
+                submitBtn.style.background = "#f44336";
+
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                  submitBtn.innerHTML = originalBtnText;
+                  submitBtn.style.background = "#fff";
+                  submitBtn.disabled = false;
+                }, 3000);
+              }
+            );
+        });
+
+      // Add input focus effects
+      const formInputs = document.querySelectorAll(
+        ".form-group input, .form-group textarea"
+      );
+      formInputs.forEach((input) => {
+        input.addEventListener("focus", function () {
+          this.parentElement.classList.add("focused");
+        });
+
+        input.addEventListener("blur", function () {
+          if (!this.value) {
+            this.parentElement.classList.remove("focused");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
