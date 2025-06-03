@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - ethic</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    .page1 {
+      height: 10vh;
+      width: 100vw;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 4)),
+        url("https://i.pinimg.com/736x/ab/e2/62/abe262fa3a79d88c42da57d6ece03fa1.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+  <body>
+    <div id="particle-cursor"></div>
+    <div class="cursor"></div>
+    <div class="page1">
+      <div class="navbar">
+        <div class="navbar-left">
+          <h1><a href="index.html">ethic</a></h1>
+        </div>
+        <div class="navbar-right">
+          <h2><a href="index.html">Home</a></h2>
+          <h2><a href="about.html">About</a></h2>
+          <h2><a href="#projects">Projects</a></h2>
+          <h2><a href="#contact">Contact</a></h2>
+          <i class="ri-menu-3-fill" id="menu-toggle">Menu</i>
+        </div>
+      </div>
+      <div class="menu-overlay" id="menu-overlay">
+        <button class="menu-close" id="menu-close" aria-label="Close menu">
+          &times;
+        </button>
+        <nav class="menu-nav">
+          <ul>
+            <li><a href="index.html" class="menu-link">Home</a></li>
+            <li><a href="about.html" class="menu-link">About</a></li>
+            <li><a href="#projects" class="menu-link">Projects</a></li>
+            <li><a href="#contact" class="menu-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="about-page">
+      <div class="about-hero">
+        <h1 class="glitch" data-text="About Me">About Me</h1>
+        <div class="about-subtitle">Creative Frontend Developer</div>
+      </div>
+
+      <div class="about-content">
+        <div class="about-section">
+          <h2>My Journey</h2>
+          <p>
+            Hi, I'm <span class="highlight">Naitik Khoriya</span>, a passionate
+            Full-Stack Web Developer currently pursuing my Computer Science
+            degree at BTU. My journey in web development began with a curiosity
+            for creating beautiful and functional digital experiences.
+          </p>
+        </div>
+
+        <div class="about-section">
+          <h2>Technical Expertise</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3>Frontend</h3>
+              <ul>
+                <li>HTML5 & CSS3</li>
+                <li>JavaScript (ES6+)</li>
+                <li>React.js</li>
+                <li>Bootstrap</li>
+                <li>Tailwind CSS</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3>Animation & Effects</h3>
+              <ul>
+                <li>GSAP</li>
+                <li>ScrollTrigger</li>
+                <li>Three.js</li>
+                <li>Shery.js</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3>Backend</h3>
+              <ul>
+                <li>Node.js</li>
+                <li>Express.js</li>
+                <li>MongoDB</li>
+                <li>RESTful APIs</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-section">
+          <h2>Open Source Contributions</h2>
+          <p>
+            I actively contribute to open-source projects, participating in
+            events like Hacktoberfest and GSSoC. My contributions focus on
+            improving code quality, adding new features, and collaborating with
+            developers worldwide.
+          </p>
+          <div class="contribution-highlights">
+            <div class="contribution-item">
+              <i class="ri-github-fill"></i>
+              <h4>Hacktoberfest 2023-24</h4>
+              <p>Active contributor to various open-source projects</p>
+            </div>
+            <div class="contribution-item">
+              <i class="ri-code-box-fill"></i>
+              <h4>GSSoC Extended 2024</h4>
+              <p>Contributing to meaningful open-source initiatives</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-section">
+          <h2>Current Focus</h2>
+          <p>
+            I'm currently focusing on mastering advanced web animations and 3D
+            graphics using Three.js, while also exploring UI/UX design
+            principles to create more engaging and intuitive user experiences.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-left">
+        <h1>Let's Collaborate</h1>
+        <h3>© ethical_khoriya</h3>
+      </div>
+      <div class="footer-right">
+        <div class="gmail">
+          <h2>ethicalkhoriya@gmail.com</h2>
+        </div>
+        <div class="footer-link">
+          <a href="https://github.com/naitikhoriya1" target="_blank"
+            >Github <i class="ri-github-fill"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/naitik-khoriya-4962a9229/"
+            target="_blank"
+            >LinkedIn <i class="ri-linkedin-fill"></i
+          ></a>
+          <a href="https://www.instagram.com/ethical_khoriya/" target="_blank"
+            >Instagram <i class="ri-instagram-fill"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
