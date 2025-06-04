@@ -11,19 +11,21 @@
     />
   </head>
   <style>
-    .page1 {
-      height: 10vh;
-      width: 100vw;
-      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 4)),
-        url("https://i.pinimg.com/736x/ab/e2/62/abe262fa3a79d88c42da57d6ece03fa1.jpg");
-      background-size: cover;
-      background-position: center;
+    body {
+      background-color: #f5eddc;
+      background-image: linear-gradient(
+          to right,
+          rgba(9, 9, 9, 0.05) 1px,
+          transparent 1px
+        ),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+      background-size: 40px 40px;
     }
   </style>
   <body>
     <div id="particle-cursor"></div>
     <div class="cursor"></div>
-    <div class="page1">
+    <div class="page1" style="height: 10vh">
       <div class="navbar">
         <div class="navbar-left">
           <h1><a href="index.html">ethic</a></h1>
@@ -48,89 +50,209 @@
             <li><a href="contact.html" class="menu-link">Contact</a></li>
           </ul>
         </nav>
+        <div id="imgs">
+          <img src="./MyImg/scroll1.jpg" alt="" />
+          <img src="./MyImg/scroll2.jpg" alt="" />
+          <img src="./MyImg/scroll3.jpg" alt="" />
+          <img src="./MyImg/scroll4.jpg" alt="" />
+          <img src="./MyImg/scroll5.jpg" alt="" />
+          <img src="./MyImg/scroll6.jpg" alt="" />
+          <img src="./MyImg/scroll7.jpg" alt="" />
+          <img src="./MyImg/scroll8.jpeg" alt="" />
+          <img src="./MyImg/scroll9.jpeg" alt="" />
+          <img src="./MyImg/scroll10.jpeg" alt="" />
+        </div>
       </div>
     </div>
 
     <div class="about-page">
-      <div class="about-hero">
-        <h1 class="glitch" data-text="About Me">About Me</h1>
-        <div class="about-subtitle">Creative Frontend Developer</div>
+      <!-- Journey Section -->
+      <div class="about-section journey-section">
+        <h2>My Journey</h2>
+        <div class="journey-content">
+          <div class="journey-text">
+            <p>
+              Starting my journey as a CSE student at BTU, I've evolved into a
+              passionate Full-Stack Developer with a keen eye for design. My
+              path has been marked by continuous learning and exploration of new
+              technologies.
+            </p>
+          </div>
+          <div class="journey-image">
+            <img src="./MyImg/img1.jpg" alt="My Journey" />
+          </div>
+        </div>
       </div>
 
-      <div class="about-content">
-        <div class="about-section">
-          <h2>My Journey</h2>
-          <p>
-            Hi, I'm <span class="highlight">Naitik Khoriya</span>, a passionate
-            Full-Stack Web Developer currently pursuing my Computer Science
-            degree at BTU. My journey in web development began with a curiosity
-            for creating beautiful and functional digital experiences.
-          </p>
+      <!-- Skills Section -->
+      <div class="about-section skills-section">
+        <h2>Technical Expertise</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Frontend Development</h3>
+            <ul>
+              <li>HTML5 & CSS3</li>
+              <li>JavaScript (ES6+)</li>
+              <li>React.js</li>
+              <li>Bootstrap & Tailwind CSS</li>
+              <li>GSAP & ScrollTrigger</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Backend Development</h3>
+            <ul>
+              <li>Node.js</li>
+              <li>Express.js</li>
+              <li>MongoDB</li>
+              <li>RESTful APIs</li>
+              <li>Authentication</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Creative Tools</h3>
+            <ul>
+              <li>Three.js</li>
+              <li>Shery.js</li>
+              <li>Figma</li>
+              <li>Adobe Creative Suite</li>
+              <li>Git & GitHub</li>
+            </ul>
+          </div>
         </div>
+      </div>
 
-        <div class="about-section">
-          <h2>Technical Expertise</h2>
-          <div class="skills-grid">
-            <div class="skill-category">
-              <h3>Frontend</h3>
-              <ul>
-                <li>HTML5 & CSS3</li>
-                <li>JavaScript (ES6+)</li>
-                <li>React.js</li>
-                <li>Bootstrap</li>
-                <li>Tailwind CSS</li>
-              </ul>
+      <!-- Open Source Section -->
+      <div class="about-section opensource-section">
+        <h2>Open Source Contributions</h2>
+        <div class="contribution-highlights">
+          <div class="contribution-item">
+            <i class="ri-github-fill"></i>
+            <h4>GSSoC'24</h4>
+            <p>
+              Contributing to open-source projects and enhancing code quality
+            </p>
+          </div>
+          <div class="contribution-item">
+            <i class="ri-code-box-fill"></i>
+            <h4>Hacktoberfest</h4>
+            <p>Active participant in Hacktoberfest 2023-24</p>
+          </div>
+          <div class="contribution-item">
+            <i class="ri-team-fill"></i>
+            <h4>Community</h4>
+            <p>Collaborating with developers worldwide</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects Showcase -->
+      <div class="about-section projects-section">
+        <h2>Featured Projects</h2>
+        <div class="projects-showcase">
+          <div class="project-item">
+            <img src="./assets/AirbnbApp.png" alt="Airbnb Clone" />
+            <h4>Airbnb Clone</h4>
+            <p>Full-stack MERN application with booking functionality</p>
+          </div>
+          <div class="project-item">
+            <img src="./assets/Colors.png" alt="Colors Combinations" />
+            <h4>Colors Combinations</h4>
+            <p>Creative design platform with GSAP animations</p>
+          </div>
+          <div class="project-item">
+            <img src="./assets/UberApp.png" alt="Uber Clone" />
+            <h4>Uber Clone</h4>
+            <p>Real-time ride booking system with payment integration</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Future Goals -->
+      <div class="about-section goals-section">
+        <h2>Future Goals</h2>
+        <div class="goals-content">
+          <p>
+            I'm constantly pushing boundaries by exploring creative web
+            development tools and focusing on creating seamless experiences that
+            captivate users and solve real-world problems.
+          </p>
+          <div class="goals-list">
+            <div class="goal-item">
+              <i class="ri-rocket-2-fill"></i>
+              <h4>Advanced 3D Web Experiences</h4>
             </div>
-            <div class="skill-category">
-              <h3>Animation & Effects</h3>
-              <ul>
-                <li>GSAP</li>
-                <li>ScrollTrigger</li>
-                <li>Three.js</li>
-                <li>Shery.js</li>
-              </ul>
+            <div class="goal-item">
+              <i class="ri-code-s-slash-fill"></i>
+              <h4>AI Integration in Web Apps</h4>
             </div>
-            <div class="skill-category">
-              <h3>Backend</h3>
-              <ul>
-                <li>Node.js</li>
-                <li>Express.js</li>
-                <li>MongoDB</li>
-                <li>RESTful APIs</li>
-              </ul>
+            <div class="goal-item">
+              <i class="ri-global-fill"></i>
+              <h4>International Collaborations</h4>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="about-section">
-          <h2>Open Source Contributions</h2>
-          <p>
-            I actively contribute to open-source projects, participating in
-            events like Hacktoberfest and GSSoC. My contributions focus on
-            improving code quality, adding new features, and collaborating with
-            developers worldwide.
-          </p>
-          <div class="contribution-highlights">
-            <div class="contribution-item">
-              <i class="ri-github-fill"></i>
-              <h4>Hacktoberfest 2023-24</h4>
-              <p>Active contributor to various open-source projects</p>
+      <!-- Experience Section -->
+      <div class="about-section experience-section">
+        <h2>Experience</h2>
+        <div class="experience-list">
+          <div class="experience-item">
+            <div class="experience-left">
+              <p>Oct 2022 - Present</p>
+              <p>Dubai, UAE</p>
             </div>
-            <div class="contribution-item">
-              <i class="ri-code-box-fill"></i>
-              <h4>GSSoC Extended 2024</h4>
-              <p>Contributing to meaningful open-source initiatives</p>
+            <div class="experience-right">
+              <h3>Senior Product Designer</h3>
+              <h4>Deriv</h4>
+              <ul>
+                <li>
+                  Currently a lead product designer for Deriv Go's experience
+                  and design.
+                </li>
+                <li>
+                  Enhanced user-centric experiences across a range of Deriv
+                  products and projects, including Wallets, Deriv Trader, Smart
+                  Trader, Trader's Hub, and Partner's Hub.
+                </li>
+              </ul>
             </div>
           </div>
-        </div>
-
-        <div class="about-section">
-          <h2>Current Focus</h2>
-          <p>
-            I'm currently focusing on mastering advanced web animations and 3D
-            graphics using Three.js, while also exploring UI/UX design
-            principles to create more engaging and intuitive user experiences.
-          </p>
+          <hr />
+          <div class="experience-item">
+            <div class="experience-left">
+              <p>Oct 2021 - Sep 2022</p>
+              <p>Chennai, India</p>
+            </div>
+            <div class="experience-right">
+              <h3>UI/UX Designer</h3>
+              <h4>Cognizant Technology Solutions</h4>
+              <ul>
+                <li>
+                  Led the design and user experience for the VisionLink
+                  productivity dashboard, a cloud-based application by
+                  Caterpillar for monitoring heavy machinery.
+                </li>
+                <li>
+                  Enhanced usability, user experience and visual consistency
+                  across a range of products for high-profile clients, including
+                  Caterpillar and Cognizant.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <hr />
+          <div class="experience-item">
+            <div class="experience-left">
+              <p>Aug 2018 - Oct 2022</p>
+              <p>Remote</p>
+            </div>
+            <div class="experience-right">
+              <h3>Logo & Branding Designer</h3>
+              <h4>Nalaprasad Designs</h4>
+              <!-- Add description points if available -->
+            </div>
+          </div>
         </div>
       </div>
     </div>
