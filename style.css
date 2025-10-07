@@ -790,8 +790,16 @@ html {
   width: 100%;
   background-color: #331628;
 }
+.page5 h1 {
+  text-align: center;
+  padding: 2px;
+  font-size: 2rem;
+  font-weight: 100;
+  color: #fff;
+  /* margin-bottom: -20px; */
+}
 .page5-up {
-  height: 33%;
+  height: 30%;
   width: 100%;
   display: flex;
   align-items: center;
