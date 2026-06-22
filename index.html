@@ -1342,16 +1342,21 @@
       height: 50vh;
     }
 
-    .card-content {
+    .pcard,
+    .pcard:nth-child(even) {
       grid-template-columns: 1fr;
     }
 
-    .card-image-wrapper {
-      height: 300px;
+    .pcard:nth-child(even) .pcard-img {
+      order: 0;
     }
 
-    .project-card:nth-child(even) .card-content {
-      direction: ltr;
+    .pcard:nth-child(even) .pcard-info {
+      order: 0;
+    }
+
+    .pcard-img {
+      min-height: 280px;
     }
 
     .page4 {
@@ -1377,10 +1382,18 @@
   }
 
   @media (max-width: 768px) {
+    .page1 {
+      height: auto;
+      min-height: 100vh;
+      overflow: visible;
+      padding-bottom: 100px;
+    }
+
     .page1-content {
       flex-direction: column;
       align-items: flex-start;
-      gap: 40px;
+      gap: 30px;
+      margin-top: 100px;
     }
 
     .page1-content-right {
@@ -1390,6 +1403,12 @@
     .role-tags {
       flex-direction: row;
       flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      font-size: 0.9rem;
+      padding: 8px 16px;
     }
 
     .hero-heading {
@@ -1402,10 +1421,33 @@
 
     .footer {
       align-items: flex-start;
+      padding: 60px 6% 40px;
     }
 
     .footer-right {
       align-items: flex-start;
+      gap: 16px;
+    }
+
+    .pcard-info {
+      padding: 36px 28px;
+    }
+
+    .pcard-info h3 {
+      font-size: 1.8rem;
+    }
+
+    .pcard-img {
+      min-height: 240px;
+    }
+
+    .page2-middle-badge {
+      padding: 14px 20px;
+      font-size: 0.75rem;
+    }
+    
+    .page2-middle-badge strong {
+      font-size: 1.8rem;
     }
   }
 </style>
@@ -1432,7 +1474,7 @@
         <h2><a href="about.html">About</a></h2>
         <h2><a href="projects.html">Projects</a></h2>
         <h2><a href="contact.html">Contact</a></h2>
-        <i class="ri-menu-3-fill" id="menu-toggle">Menu</i>
+        <button id="menu-toggle"><i class="ri-menu-3-fill"></i> Menu</button>
       </div>
     </div>
 
