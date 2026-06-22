@@ -126,18 +126,18 @@
 
   /* ===== FILTER BAR ===== */
   .filter-bar {
-    padding: 40px 6% 10px;
+    padding: 14px 6%;
     display: flex;
     align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    border-bottom: 1px solid rgba(30, 16, 5, 0.08);
+    gap: 10px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    border-bottom: 1px solid rgba(30, 16, 5, 0.1);
     background: #f5eddc;
-    position: sticky;
-    top: 72px;
-    z-index: 50;
-    backdrop-filter: blur(10px);
   }
+
+  .filter-bar::-webkit-scrollbar { display: none; }
 
   .filter-label {
     font-size: 0.75rem;
@@ -395,7 +395,7 @@
   /* ===== LANDING PAGES SECTION ===== */
   .landing-section {
     background: #1e1005;
-    padding: 100px 6%;
+    padding: 100px 0;
     position: relative;
     overflow: hidden;
   }
@@ -415,7 +415,13 @@
   }
 
   .landing-header {
-    margin-bottom: 60px;
+    padding: 0 6%;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
   }
 
   .landing-header .section-label {
@@ -430,19 +436,113 @@
     line-height: 1.05;
   }
 
-  .landing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+  /* NAV ARROWS */
+  .landing-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
 
+  .landing-nav-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(251, 239, 217, 0.2);
+    background: transparent;
+    color: #fbefd9;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .landing-nav-btn:hover {
+    background: #e07b39;
+    border-color: #e07b39;
+    color: #1e1005;
+    transform: scale(1.08);
+  }
+
+  .landing-nav-btn:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* TRACK WRAPPER */
+  .landing-track-wrapper {
+    position: relative;
+    padding: 0 6%;
+  }
+
+  /* left / right fade edges */
+  .landing-track-wrapper::before,
+  .landing-track-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .landing-track-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, #1e1005, transparent);
+  }
+
+  .landing-track-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, #1e1005, transparent);
+  }
+
+  /* SCROLL TRACK */
+  .landing-track {
+    display: flex;
+    gap: 22px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    cursor: grab;
+    padding-bottom: 8px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .landing-track::-webkit-scrollbar { display: none; }
+  .landing-track.dragging { cursor: grabbing; scroll-behavior: auto; }
+
+  /* PROGRESS BAR */
+  .landing-progress {
+    margin: 32px 6% 0;
+    height: 2px;
+    background: rgba(251, 239, 217, 0.08);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .landing-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #e07b39, #f0a060);
+    border-radius: 2px;
+    transition: width 0.1s linear;
+  }
+
+  /* LCARD */
   .lcard {
-    border-radius: 18px;
+    border-radius: 20px;
     overflow: hidden;
     position: relative;
     background: rgba(251, 239, 217, 0.04);
-    border: 1px solid rgba(251, 239, 217, 0.07);
-    transition: all 0.4s ease;
+    border: 1px solid rgba(251, 239, 217, 0.08);
+    transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+    flex: 0 0 clamp(280px, 32vw, 420px);
+    scroll-snap-align: start;
     opacity: 0;
     transform: translateY(30px);
   }
@@ -453,18 +553,18 @@
   }
 
   .lcard:hover {
-    border-color: rgba(224, 123, 57, 0.3);
-    transform: translateY(-8px);
-    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.4);
+    border-color: rgba(224, 123, 57, 0.35);
+    transform: translateY(-6px);
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5);
   }
 
   .lcard img {
     width: 100%;
-    height: 240px;
+    height: 260px;
     object-fit: cover;
     display: block;
-    transition: transform 0.5s ease;
-    filter: brightness(0.8) saturate(0.85);
+    transition: transform 0.55s ease;
+    filter: brightness(0.82) saturate(0.85);
   }
 
   .lcard:hover img {
@@ -476,27 +576,42 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 10px;
   }
 
   .lcard-footer h5 {
     font-family: "vilaka", serif;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 400;
     color: #fbefd9;
     text-transform: capitalize;
   }
 
-  .lcard-footer i {
-    font-size: 1.2rem;
-    color: #e07b39;
-    opacity: 0;
-    transform: translateX(-6px);
+  .lcard-footer .lcard-arrow {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(251, 239, 217, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.3s ease;
+    flex-shrink: 0;
   }
 
-  .lcard:hover .lcard-footer i {
-    opacity: 1;
-    transform: translateX(0);
+  .lcard-footer .lcard-arrow i {
+    font-size: 1rem;
+    color: rgba(251, 239, 217, 0.5);
+    transition: color 0.3s ease;
+  }
+
+  .lcard:hover .lcard-footer .lcard-arrow {
+    background: #e07b39;
+    border-color: #e07b39;
+  }
+
+  .lcard:hover .lcard-footer .lcard-arrow i {
+    color: #1e1005;
   }
 
   /* ===== FOOTER ===== */
@@ -549,8 +664,8 @@
       min-height: 280px;
     }
 
-    .landing-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .lcard {
+      flex: 0 0 clamp(260px, 70vw, 340px);
     }
   }
 
@@ -559,8 +674,8 @@
       font-size: clamp(3rem, 14vw, 5rem);
     }
 
-    .landing-grid {
-      grid-template-columns: 1fr;
+    .lcard {
+      flex: 0 0 80vw;
     }
 
     .pcard-info {
@@ -763,53 +878,73 @@
 
   <!-- ===== LANDING PAGES ===== -->
   <section class="landing-section">
+    <!-- Header + arrows -->
     <div class="landing-header reveal-left">
-      <p class="section-label">Creative Frontend</p>
-      <h2>Landing Pages</h2>
+      <div>
+        <p class="section-label">Creative Frontend</p>
+        <h2>Landing Pages</h2>
+      </div>
+      <div class="landing-nav">
+        <button class="landing-nav-btn" id="lp-prev" aria-label="Previous">
+          <i class="ri-arrow-left-line"></i>
+        </button>
+        <button class="landing-nav-btn" id="lp-next" aria-label="Next">
+          <i class="ri-arrow-right-line"></i>
+        </button>
+      </div>
     </div>
-    <div class="landing-grid">
-      <div class="lcard" id="lp-1">
-        <img src="./assets/project1.png" alt="Landing page 1" />
-        <div class="lcard-footer">
-          <h5>Landing Page 1</h5>
-          <i class="ri-arrow-right-up-line"></i>
+
+    <!-- Horizontal scroll track -->
+    <div class="landing-track-wrapper">
+      <div class="landing-track" id="landing-track">
+        <div class="lcard" id="lp-1">
+          <img src="./assets/project1.png" alt="Landing page 1" />
+          <div class="lcard-footer">
+            <h5>Landing Page 1</h5>
+            <span class="lcard-arrow"><i class="ri-arrow-right-up-line"></i></span>
+          </div>
+        </div>
+        <div class="lcard" id="lp-2">
+          <img src="./assets/project2.png" alt="Landing page 2" />
+          <div class="lcard-footer">
+            <h5>Landing Page 2</h5>
+            <span class="lcard-arrow"><i class="ri-arrow-right-up-line"></i></span>
+          </div>
+        </div>
+        <div class="lcard" id="lp-3">
+          <img src="./assets/project3.png" alt="Landing page 3" />
+          <div class="lcard-footer">
+            <h5>Landing Page 3</h5>
+            <span class="lcard-arrow"><i class="ri-arrow-right-up-line"></i></span>
+          </div>
+        </div>
+        <div class="lcard" id="lp-4">
+          <img src="./assets/project4.png" alt="Landing page 4" />
+          <div class="lcard-footer">
+            <h5>Landing Page 4</h5>
+            <span class="lcard-arrow"><i class="ri-arrow-right-up-line"></i></span>
+          </div>
+        </div>
+        <div class="lcard" id="lp-5">
+          <img src="./assets/project5.png" alt="Landing page 5" />
+          <div class="lcard-footer">
+            <h5>Landing Page 5</h5>
+            <span class="lcard-arrow"><i class="ri-arrow-right-up-line"></i></span>
+          </div>
+        </div>
+        <div class="lcard" id="lp-6">
+          <img src="./assets/project6.png" alt="Landing page 6" />
+          <div class="lcard-footer">
+            <h5>Landing Page 6</h5>
+            <span class="lcard-arrow"><i class="ri-arrow-right-up-line"></i></span>
+          </div>
         </div>
       </div>
-      <div class="lcard" id="lp-2">
-        <img src="./assets/project2.png" alt="Landing page 2" />
-        <div class="lcard-footer">
-          <h5>Landing Page 2</h5>
-          <i class="ri-arrow-right-up-line"></i>
-        </div>
-      </div>
-      <div class="lcard" id="lp-3">
-        <img src="./assets/project3.png" alt="Landing page 3" />
-        <div class="lcard-footer">
-          <h5>Landing Page 3</h5>
-          <i class="ri-arrow-right-up-line"></i>
-        </div>
-      </div>
-      <div class="lcard" id="lp-4">
-        <img src="./assets/project4.png" alt="Landing page 4" />
-        <div class="lcard-footer">
-          <h5>Landing Page 4</h5>
-          <i class="ri-arrow-right-up-line"></i>
-        </div>
-      </div>
-      <div class="lcard" id="lp-5">
-        <img src="./assets/project5.png" alt="Landing page 5" />
-        <div class="lcard-footer">
-          <h5>Landing Page 5</h5>
-          <i class="ri-arrow-right-up-line"></i>
-        </div>
-      </div>
-      <div class="lcard" id="lp-6">
-        <img src="./assets/project6.png" alt="Landing page 6" />
-        <div class="lcard-footer">
-          <h5>Landing Page 6</h5>
-          <i class="ri-arrow-right-up-line"></i>
-        </div>
-      </div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="landing-progress">
+      <div class="landing-progress-fill" id="lp-progress"></div>
     </div>
   </section>
 
@@ -868,9 +1003,65 @@
 
     document.querySelectorAll(".lcard").forEach((card, i) => {
       card.style.transitionDelay = `${i * 0.07}s`;
-      card.style.transition = `opacity 0.7s ease ${i * 0.07}s, transform 0.7s ease ${i * 0.07}s, border-color 0.3s ease, box-shadow 0.4s ease`;
+      card.style.transition = `opacity 0.7s ease ${i * 0.07}s, transform 0.7s ease ${i * 0.07}s, border-color 0.35s ease, box-shadow 0.35s ease`;
       cardObserver.observe(card);
     });
+
+    // ===== HORIZONTAL SCROLL CAROUSEL =====
+    (function () {
+      const track = document.getElementById('landing-track');
+      const prev  = document.getElementById('lp-prev');
+      const next  = document.getElementById('lp-next');
+      const fill  = document.getElementById('lp-progress');
+      if (!track) return;
+
+      const STEP = () => track.firstElementChild
+        ? track.firstElementChild.offsetWidth + 22
+        : 300;
+
+      // Arrow buttons
+      prev.addEventListener('click', () => { track.scrollBy({ left: -STEP(), behavior: 'smooth' }); });
+      next.addEventListener('click', () => { track.scrollBy({ left:  STEP(), behavior: 'smooth' }); });
+
+      // Progress bar + button states
+      function updateUI() {
+        const max = track.scrollWidth - track.clientWidth;
+        const pct = max > 0 ? (track.scrollLeft / max) * 100 : 0;
+        fill.style.width = pct + '%';
+        prev.disabled = track.scrollLeft <= 1;
+        next.disabled = track.scrollLeft >= max - 1;
+      }
+      track.addEventListener('scroll', updateUI, { passive: true });
+      updateUI();
+
+      // Drag to scroll
+      let isDragging = false, startX = 0, scrollStart = 0;
+      track.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.pageX;
+        scrollStart = track.scrollLeft;
+        track.classList.add('dragging');
+        e.preventDefault();
+      });
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        track.scrollLeft = scrollStart - (e.pageX - startX);
+      });
+      window.addEventListener('mouseup', () => {
+        isDragging = false;
+        track.classList.remove('dragging');
+      });
+
+      // Touch
+      let touchStartX = 0, touchScrollStart = 0;
+      track.addEventListener('touchstart', (e) => {
+        touchStartX   = e.touches[0].clientX;
+        touchScrollStart = track.scrollLeft;
+      }, { passive: true });
+      track.addEventListener('touchmove', (e) => {
+        track.scrollLeft = touchScrollStart - (e.touches[0].clientX - touchStartX);
+      }, { passive: true });
+    })();
 
     // ===== FILTER BUTTONS =====
     const filterBtns = document.querySelectorAll(".filter-btn");
