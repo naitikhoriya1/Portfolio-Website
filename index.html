@@ -4,42 +4,1441 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfoilio 🦁-ethic</title>
+  <title>ethic — Naitik Khoriya | Creative Developer</title>
+  <meta name="description"
+    content="Naitik Khoriya — Full-Stack Developer & Creative Web Engineer crafting immersive digital experiences with React, Node.js, GSAP, and Three.js." />
   <link rel="stylesheet" href="style.css" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
+
 <style>
+  /* ===== BODY BASE ===== */
   body {
     background-color: #f5eddc;
-    background-image: linear-gradient(to right,
-        rgba(9, 9, 9, 0.05) 1px,
-        transparent 1px),
+    background-image: linear-gradient(to right, rgba(9, 9, 9, 0.05) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
     background-size: 40px 40px;
+  }
+
+  /* ===========================
+     PAGE 1 — HERO
+  =========================== */
+  .page1 {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Hero background — dark overlay over image */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(30, 16, 5, 0.88) 0%, rgba(30, 16, 5, 0.60) 50%, rgba(63, 104, 166, 0.25) 100%),
+      url("https://i.pinimg.com/736x/ab/e2/62/abe262fa3a79d88c42da57d6ece03fa1.jpg");
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+  }
+
+  /* Grain texture overlay */
+  .hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  /* ===========================
+     NAVBAR
+  =========================== */
+  .navbar {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    border-bottom: 1px solid rgba(251, 239, 217, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    transition: all 0.4s ease;
+    background: rgba(30, 16, 5, 0.15);
+  }
+
+  .navbar:hover {
+    border-bottom-color: rgba(251, 239, 217, 0.3);
+    background: rgba(30, 16, 5, 0.3);
+  }
+
+  .navbar-left h1 {
+    letter-spacing: 1px;
+    font-size: 2rem;
+    background: linear-gradient(45deg, #fbefd9, #e07b39);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+  }
+
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .navbar-right i {
+    font-size: 25px;
+    cursor: pointer;
+    color: #fbefd9;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .navbar-right i:hover {
+    transform: scale(1.1);
+    color: #e07b39;
+  }
+
+  .navbar-right h2 {
+    font-size: 1.05rem;
+    font-weight: 500;
+  }
+
+  .navbar-right h2 a {
+    position: relative;
+    text-decoration: none;
+    color: rgba(251, 239, 217, 0.85);
+    transition: color 0.3s ease;
+    padding: 5px 0;
+  }
+
+  .navbar-right h2 a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #e07b39;
+    transition: width 0.3s ease;
+  }
+
+  .navbar-right h2 a:hover::after,
+  .navbar-right h2 a.active::after {
+    width: 100%;
+  }
+
+  .navbar-right h2 a:hover,
+  .navbar-right h2 a.active {
+    color: #e07b39;
+  }
+
+  /* ===========================
+     HERO CONTENT
+  =========================== */
+  .page1-content {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 6%;
+    gap: 60px;
+    margin-top: 80px;
+  }
+
+  .page1-content-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  /* Eyebrow */
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: rgba(251, 239, 217, 0.65);
+    font-weight: 600;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.2s ease forwards;
+  }
+
+  .hero-eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 36px;
+    height: 2px;
+    background: #e07b39;
+    flex-shrink: 0;
+  }
+
+  /* Main heading */
+  .hero-heading {
+    font-family: "vilaka", serif;
+    font-size: clamp(4rem, 8vw, 8.5rem);
+    font-weight: 400;
+    line-height: 0.95;
+    color: #fbefd9;
+    letter-spacing: -1px;
+    opacity: 0;
+    animation: fadeUp 1s 0.4s ease forwards;
+  }
+
+  .hero-heading .line-accent {
+    -webkit-text-stroke: 1.5px #e07b39;
+    color: transparent;
+    display: block;
+  }
+
+  .hero-heading .line-fill {
+    color: #fbefd9;
+    display: block;
+  }
+
+  /* Sub text */
+  .hero-subtext {
+    font-size: 1.05rem;
+    color: rgba(251, 239, 217, 0.6);
+    line-height: 1.7;
+    max-width: 440px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.65s ease forwards;
+  }
+
+  /* CTA row */
+  .hero-cta {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.85s ease forwards;
+  }
+
+  .hero-btn-solid {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 34px;
+    background: #e07b39;
+    color: #1e1005;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    transition: all 0.35s ease;
+    border: 2px solid #e07b39;
+  }
+
+  .hero-btn-solid:hover {
+    background: transparent;
+    color: #fbefd9;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(224, 123, 57, 0.4);
+  }
+
+  .hero-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 30px;
+    border: 2px solid rgba(251, 239, 217, 0.3);
+    color: rgba(251, 239, 217, 0.85);
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .hero-btn-outline:hover {
+    border-color: #fbefd9;
+    color: #fbefd9;
+    transform: translateY(-3px);
+  }
+
+  /* Right side — tags */
+  .page1-content-right {
+    width: 300px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    animation: fadeRight 1s 0.6s ease forwards;
+  }
+
+  .role-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .tag {
+    background: rgba(251, 239, 217, 0.06);
+    padding: 10px 20px;
+    border-radius: 40px;
+    font-size: 0.88rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(224, 123, 57, 0.2);
+    color: rgba(251, 239, 217, 0.8);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+
+  .tag:hover {
+    background: rgba(224, 123, 57, 0.12);
+    border-color: rgba(224, 123, 57, 0.5);
+    color: #fbefd9;
+    transform: translateX(-8px);
+  }
+
+  /* Scroll indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 3;
+    opacity: 0;
+    animation: fadeUp 0.8s 1.2s ease forwards;
+  }
+
+  .mouse {
+    width: 28px;
+    height: 46px;
+    border: 2px solid rgba(251, 239, 217, 0.4);
+    border-radius: 20px;
+    position: relative;
+  }
+
+  .wheel {
+    width: 4px;
+    height: 8px;
+    background: #e07b39;
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    animation: scroll 1.5s infinite;
+  }
+
+  @keyframes scroll {
+    0% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(20px);
+    }
+  }
+
+  .arrow span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid rgba(251, 239, 217, 0.4);
+    border-right: 2px solid rgba(251, 239, 217, 0.4);
+    transform: rotate(45deg);
+    margin: -5px;
+    animation: arrow 1.5s infinite;
+  }
+
+  .arrow span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .arrow span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes arrow {
+    0% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  /* Hero ambient glow orbs */
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    filter: blur(80px);
+  }
+
+  .hero-orb-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(224, 123, 57, 0.18), transparent 70%);
+    top: -100px;
+    right: -100px;
+    animation: orbPulse 6s ease-in-out infinite alternate;
+  }
+
+  .hero-orb-2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(63, 104, 166, 0.15), transparent 70%);
+    bottom: 0;
+    left: 10%;
+    animation: orbPulse 8s 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes orbPulse {
+    from {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+
+    to {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+  }
+
+  /* Hero animations */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* ===========================
+     PAGE 2 — ABOUT INTRO
+  =========================== */
+  .page2 {
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #fbefd9;
+    color: #1e1005;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page2::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to right, rgba(9, 9, 9, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  .page2-left {
+    height: 100%;
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 5% 60px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .page2-left .section-number {
+    font-family: "vilaka", serif;
+    font-size: 8rem;
+    color: rgba(30, 16, 5, 0.05);
+    line-height: 1;
+    position: absolute;
+    top: 80px;
+    left: 40px;
+    pointer-events: none;
+  }
+
+  .section-title {
+    margin-bottom: 36px;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+    color: #e07b39;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+
+  .subtitle::before {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    background: #e07b39;
+    flex-shrink: 0;
+  }
+
+  .title {
+    font-family: "vilaka", serif;
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-weight: 400;
+    margin-bottom: 6px;
+    color: #1e1005;
+    line-height: 1.05;
+  }
+
+  .role {
+    font-size: 1.3rem;
+    color: #3f68a6;
+    font-weight: 500;
+    font-family: "threefont", sans-serif;
+  }
+
+  .quote {
+    font-family: "vilaka", serif;
+    font-size: clamp(2.2rem, 3.5vw, 3.8rem);
+    font-weight: 400;
+    line-height: 1.2;
+    position: relative;
+    color: #1e1005;
+    margin-top: 30px;
+  }
+
+  .quote::after {
+    content: "";
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #e07b39, transparent);
+    border-radius: 2px;
+  }
+
+  .page2-middle {
+    height: 100%;
+    width: 38%;
+    background-image: url("./MyImg/img1.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(224, 123, 57, 0.15), rgba(63, 104, 166, 0.15));
+  }
+
+  /* floating pill on photo */
+  .page2-middle-badge {
+    position: absolute;
+    bottom: 36px;
+    right: -1px;
+    background: #1e1005;
+    color: #fbefd9;
+    padding: 18px 28px;
+    border-radius: 20px 0 0 20px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    z-index: 2;
+    box-shadow: -8px 8px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .page2-middle-badge strong {
+    display: block;
+    font-family: "vilaka", serif;
+    font-size: 2.2rem;
+    color: #e07b39;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  .page2-right {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 5% 60px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .intro,
+  .skills,
+  .current-focus {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    letter-spacing: 0.3px;
+    color: #4a3728;
+  }
+
+  .highlight {
+    color: #e07b39;
+    font-weight: 700;
+  }
+
+  .page2-right-img {
+    width: 100%;
+    height: 38%;
+    background-image: url("./MyImg/img2.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin-top: 44px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(30, 16, 5, 0.15);
+  }
+
+  /* About page CTA */
+  .about-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+    padding: 12px 28px;
+    background: #1e1005;
+    color: #fbefd9;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid #1e1005;
+    align-self: flex-start;
+  }
+
+  .about-cta:hover {
+    background: transparent;
+    color: #1e1005;
+    transform: translateY(-3px);
+  }
+
+  /* ===========================
+     PAGE 3 — PROJECTS
+  =========================== */
+  .page3 {
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #fbefd9;
+    padding: 100px 0 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page3::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to right, rgba(9, 9, 9, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  .projects-header {
+    text-align: center;
+    margin-bottom: 80px;
+    padding: 0 5%;
+    position: relative;
+  }
+
+  .section-subtitle {
+    font-size: 0.8rem;
+    color: #e07b39;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .section-subtitle::before,
+  .section-subtitle::after {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 2px;
+    background: #e07b39;
+  }
+
+  .section-title {
+    font-family: "vilaka", serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 400;
+    color: #1e1005;
+    line-height: 1;
+  }
+
+  .projects-container {
+    position: relative;
+    padding: 0 5%;
+  }
+
+  /* ===== PCARD — shared with projects.html ===== */
+  .pcard {
+    background: #1e1005;
+    border-radius: 24px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    box-shadow: 0 20px 50px rgba(30, 16, 5, 0.15);
+    border: 1px solid rgba(251, 239, 217, 0.05);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+    margin-bottom: 40px;
+  }
+
+  .pcard.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .pcard:nth-child(even) {
+    grid-template-columns: 45% 55%;
+  }
+
+  .pcard:nth-child(even) .pcard-img {
+    order: 2;
+  }
+
+  .pcard:nth-child(even) .pcard-info {
+    order: 1;
+  }
+
+  .pcard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 36px 70px rgba(30, 16, 5, 0.25);
+  }
+
+  .pcard-img {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+  }
+
+  .pcard-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+    filter: brightness(0.9);
+  }
+
+  .pcard:hover .pcard-img img {
+    transform: scale(1.05);
+  }
+
+  .pcard-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(224, 123, 57, 0.12), rgba(63, 104, 166, 0.12));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .pcard:hover .pcard-img-overlay {
+    opacity: 1;
+  }
+
+  .pcard-num {
+    position: absolute;
+    bottom: 20px;
+    left: 24px;
+    font-family: "vilaka", serif;
+    font-size: 1rem;
+    color: rgba(251, 239, 217, 0.5);
+    font-weight: 400;
+    letter-spacing: 2px;
+  }
+
+  .pcard-info {
+    padding: 52px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .pcard-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .ptag {
+    padding: 5px 14px;
+    background: rgba(224, 123, 57, 0.12);
+    border: 1px solid rgba(224, 123, 57, 0.3);
+    border-radius: 50px;
+    font-size: 0.72rem;
+    color: #e07b39;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .pcard-info h3 {
+    font-family: "vilaka", serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: #fbefd9;
+    line-height: 1.1;
+  }
+
+  .pcard-info p {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: rgba(251, 239, 217, 0.6);
+    margin: 0;
+  }
+
+  .pcard-links {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+  }
+
+  .plink-solid {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 24px;
+    background: #e07b39;
+    color: #1e1005;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: 2px solid #e07b39;
+    transition: all 0.3s ease;
+  }
+
+  .plink-solid:hover {
+    background: transparent;
+    color: #fbefd9;
+    transform: translateY(-3px);
+  }
+
+  .plink-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 24px;
+    border: 2px solid rgba(251, 239, 217, 0.2);
+    color: rgba(251, 239, 217, 0.75);
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .plink-ghost:hover {
+    border-color: #fbefd9;
+    color: #fbefd9;
+    transform: translateY(-3px);
+  }
+
+  /* View all link */
+  .projects-view-all {
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 60px;
+  }
+
+  .projects-view-all a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #1e1005;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-bottom: 2px solid #e07b39;
+    padding-bottom: 4px;
+    transition: gap 0.3s ease, color 0.3s ease;
+  }
+
+  .projects-view-all a:hover {
+    gap: 16px;
+    color: #e07b39;
+  }
+
+  /* ===========================
+     GAP
+  =========================== */
+  .gap {
+    height: 12vh;
+    width: 100vw;
+    background-color: #fbefd9;
+    border-bottom: 1px solid rgba(30, 16, 5, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Marquee text in gap */
+  .marquee-track {
+    display: flex;
+    gap: 60px;
+    animation: marquee 16s linear infinite;
+    white-space: nowrap;
+    will-change: transform;
+  }
+
+  .marquee-item {
+    font-family: "vilaka", serif;
+    font-size: 1.8rem;
+    color: rgba(30, 16, 5, 0.2);
+    font-weight: 400;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .marquee-dot {
+    width: 8px;
+    height: 8px;
+    background: #e07b39;
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* ===========================
+     PAGE 4 — OPEN SOURCE / PROCESS
+  =========================== */
+  .page4 {
+    position: relative;
+    min-height: 100vh;
+    width: 100vw;
+    background: linear-gradient(160deg, #1e1005 0%, #331628 100%);
+    /* Override style.css display:flex with grid */
+    display: grid !important;
+    flex-direction: unset !important;
+    grid-template-columns: 36% 1fr;
+    overflow: hidden;
+  }
+
+  .page4::before {
+    content: "Open\ASource";
+    white-space: pre;
+    position: absolute;
+    right: 3%;
+    top: 50px;
+    font-family: "vilaka", serif;
+    font-size: 10rem;
+    color: rgba(251, 239, 217, 0.025);
+    font-weight: 400;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .page4-left {
+    /* Override style.css width:30% */
+    width: 100% !important;
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 5% 80px 6%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .page4-left h5 {
+    font-size: 0.78rem;
+    color: #e07b39;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .page4-left h5::before {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    background: #e07b39;
+    flex-shrink: 0;
+  }
+
+  .page4-left h2 {
+    font-family: "vilaka", serif;
+    font-size: clamp(1.8rem, 2.8vw, 3rem);
+    font-weight: 400;
+    color: #fbefd9;
+    line-height: 1.4;
+    margin-bottom: 36px;
+    /* Override position:absolute from style.css */
+    position: relative !important;
+    bottom: auto !important;
+  }
+
+  .page4-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 10px;
+  }
+
+  .page4-stat {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 22px;
+    background: rgba(251, 239, 217, 0.05);
+    border: 1px solid rgba(251, 239, 217, 0.08);
+    border-radius: 14px;
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+
+  .page4-stat:hover {
+    background: rgba(224, 123, 57, 0.1);
+    border-color: rgba(224, 123, 57, 0.25);
+    transform: translateX(6px);
+  }
+
+  .page4-stat-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(224, 123, 57, 0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e07b39;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .page4-stat-info strong {
+    display: block;
+    color: #fbefd9;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .page4-stat-info span {
+    font-size: 0.8rem;
+    color: rgba(251, 239, 217, 0.45);
+  }
+
+  /* Right — process images */
+  .page4-right {
+    /* Override style.css width:70% */
+    width: 100% !important;
+    height: auto !important;
+    padding: 80px 5% 80px 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .process-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .process-card {
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+    background: rgba(251, 239, 217, 0.04);
+    border: 1px solid rgba(251, 239, 217, 0.07);
+    transition: transform 0.4s ease, border-color 0.3s ease;
+  }
+
+  .process-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(224, 123, 57, 0.3);
+  }
+
+  .process-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+    filter: brightness(0.85) saturate(0.9);
+  }
+
+  .process-card:hover img {
+    transform: scale(1.05);
+  }
+
+  .process-card-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 20px;
+    background: linear-gradient(to top, rgba(30, 16, 5, 0.9), transparent);
+    color: #fbefd9;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .process-card-label .step-num {
+    width: 26px;
+    height: 26px;
+    background: #e07b39;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #1e1005;
+    flex-shrink: 0;
+  }
+
+  .process-card-full img {
+    height: 160px;
+  }
+
+  /* ===========================
+     FOOTER
+  =========================== */
+  .footer {
+    padding: 80px 6% 50px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    background: linear-gradient(135deg, #fbefd9 0%, #e8d5b7 40%, #cab8b4 70%, #fbefd9 100%);
+    flex-wrap: wrap;
+    gap: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer::before {
+    content: "ethic";
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "vilaka", serif;
+    font-size: 18rem;
+    color: rgba(30, 16, 5, 0.04);
+    font-weight: 400;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-left h1 {
+    font-family: "vilaka", serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 400;
+    color: #1e1005;
+    line-height: 1;
+  }
+
+  .footer-left h3 {
+    font-size: 0.9rem;
+    color: #7a6555;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .gmail h2 {
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    font-weight: 400;
+    color: #1e1005;
+    border-bottom: 2px solid #e07b39;
+    padding-bottom: 4px;
+    letter-spacing: -0.5px;
+  }
+
+  .footer-link {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .footer-link a {
+    text-decoration: none;
+    color: #4a3728;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(30, 16, 5, 0.2);
+    padding-bottom: 2px;
+  }
+
+  .footer-link a:hover {
+    color: #e07b39;
+    border-bottom-color: #e07b39;
+    transform: translateY(-2px);
+  }
+
+  .footer-link a i {
+    font-size: 1.1rem;
+  }
+
+  /* ===========================
+     SCROLL REVEAL
+  =========================== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.85s ease, transform 0.85s ease;
+  }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.85s ease, transform 0.85s ease;
+  }
+
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.85s ease, transform 0.85s ease;
+  }
+
+  .reveal.visible,
+  .reveal-left.visible,
+  .reveal-right.visible {
+    opacity: 1;
+    transform: translate(0);
+  }
+
+  /* ===========================
+     RESPONSIVE
+  =========================== */
+  @media (max-width: 1100px) {
+    .page1-content {
+      padding: 0 5%;
+    }
+
+    .page1-content-right {
+      width: 250px;
+    }
+
+    .page2 {
+      flex-direction: column;
+    }
+
+    .page2-left,
+    .page2-right {
+      width: 100%;
+      padding: 80px 5% 40px;
+    }
+
+    .page2-middle {
+      width: 100%;
+      height: 50vh;
+    }
+
+    .card-content {
+      grid-template-columns: 1fr;
+    }
+
+    .card-image-wrapper {
+      height: 300px;
+    }
+
+    .project-card:nth-child(even) .card-content {
+      direction: ltr;
+    }
+
+    .page4 {
+      grid-template-columns: 1fr;
+    }
+
+    .page4-left {
+      padding: 80px 5% 50px;
+    }
+
+    .page4-right {
+      padding: 0 5% 80px;
+    }
+
+    .process-row {
+      grid-template-columns: 1fr;
+    }
+
+    .process-card img,
+    .process-card-full img {
+      height: 200px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .page1-content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 40px;
+    }
+
+    .page1-content-right {
+      width: 100%;
+    }
+
+    .role-tags {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .hero-heading {
+      font-size: clamp(3rem, 12vw, 5rem);
+    }
+
+    .navbar-right h2 {
+      display: none;
+    }
+
+    .footer {
+      align-items: flex-start;
+    }
+
+    .footer-right {
+      align-items: flex-start;
+    }
   }
 </style>
 
 <body>
   <div id="particle-cursor"></div>
   <div class="cursor"></div>
+
+  <!-- ===========================
+       PAGE 1 — HERO
+  =========================== -->
   <div class="page1">
-    <!-- <div class="menu"></div> -->
+    <div class="hero-bg"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+
+    <!-- NAVBAR -->
     <div class="navbar">
       <div class="navbar-left">
         <h1>ethic</h1>
       </div>
       <div class="navbar-right">
-        <h2><a href="index.html">Home</a></h2>
+        <h2><a href="index.html" class="active">Home</a></h2>
         <h2><a href="about.html">About</a></h2>
         <h2><a href="projects.html">Projects</a></h2>
         <h2><a href="contact.html">Contact</a></h2>
         <i class="ri-menu-3-fill" id="menu-toggle">Menu</i>
       </div>
     </div>
+
+    <!-- MENU OVERLAY -->
     <div class="menu-overlay" id="menu-overlay">
-      <button class="menu-close" id="menu-close" aria-label="Close menu">
-        &times;
-      </button>
+      <button class="menu-close" id="menu-close" aria-label="Close menu">&times;</button>
       <nav class="menu-nav">
         <ul>
           <li><a href="index.html" class="menu-link">Home</a></li>
@@ -61,51 +1460,76 @@
         <img src="./MyImg/scroll10.jpeg" alt="" />
       </div>
     </div>
+
+    <!-- HERO CONTENT -->
     <div class="page1-content">
       <div class="page1-content-left">
-        <h1 class="glitch" data-text="NAITIK">
-          Creative <br />
-          Frontend <br />
-          Developer
+        <p class="hero-eyebrow">Creative Developer &amp; Designer</p>
+        <h1 class="hero-heading">
+          <span class="line-fill">Creative</span>
+          <span class="line-accent">Frontend</span>
+          <span class="line-fill">Developer</span>
         </h1>
-        <div class="scroll-indicator">
-          <div class="mouse">
-            <div class="wheel"></div>
-          </div>
-          <div class="arrow">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+        <p class="hero-subtext">
+          Building immersive web experiences at the intersection of design and engineering —
+          from pixel-perfect UIs to full-stack systems.
+        </p>
+        <div class="hero-cta">
+          <a href="projects.html" class="hero-btn-solid">
+            View Projects <i class="ri-arrow-right-line"></i>
+          </a>
+          <a href="about.html" class="hero-btn-outline">
+            About Me <i class="ri-user-line"></i>
+          </a>
         </div>
       </div>
+
       <div class="page1-content-right">
         <div class="role-tags">
           <span class="tag">CSE'25 UG @BTU 🎓</span>
           <span class="tag">Creative Web Developer 🧑‍💻</span>
-          <span class="tag">@Gssoc-Ext '24 🌐</span>
-          <span class="tag">@Hacktoberfest'23 - '24 🎉</span>
-          <span class="tag">HTML | CSS | JS | React | Bootstrap | Tailwind CSS | GSAP |
-            ScrollTrigger
-          </span>
-          <span class="tag"> Three.js | Shery.js 🦁 </span>
+          <span class="tag">@GSSoC-Ext '24 🌐</span>
+          <span class="tag">@Hacktoberfest'23–'24 🎉</span>
+          <span class="tag">React · Node · GSAP · Three.js 🦁</span>
         </div>
       </div>
     </div>
+
+    <div class="scroll-indicator">
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+      <div class="arrow">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
   </div>
+
+  <!-- ===========================
+       PAGE 2 — ABOUT INTRO
+  =========================== -->
   <div class="page2 backgroundGrid">
-    <div class="page2-left">
+    <div class="page2-left reveal-left">
+      <span class="section-number">01</span>
       <div class="section-title">
         <span class="subtitle">About Me</span>
         <h2 class="title">Naitik Khoriya</h2>
         <h3 class="role">Creative Web Developer</h3>
       </div>
-      <h1 class="quote">Every Line Tells a Story</h1>
+      <h1 class="quote">Every Line<br />Tells a Story</h1>
     </div>
-    <div class="page2-middle">
+
+    <div class="page2-middle reveal">
       <div class="image-overlay"></div>
+      <div class="page2-middle-badge">
+        <strong>2+</strong>
+        Years crafting<br />digital experiences
+      </div>
     </div>
-    <div class="page2-right">
+
+    <div class="page2-right reveal-right">
       <div class="about-content">
         <p class="intro">
           Hi, I'm <span class="highlight">Naitik Khoriya</span>, a passionate
@@ -124,152 +1548,239 @@
           solve real-world problems.
         </p>
       </div>
+      <a href="about.html" class="about-cta">
+        Read More <i class="ri-arrow-right-line"></i>
+      </a>
       <div class="page2-right-img">
         <div class="image-overlay"></div>
       </div>
     </div>
   </div>
+
+  <!-- ===========================
+       PAGE 3 — PROJECTS
+  =========================== -->
   <div class="page3 backgroundGrid">
-    <div class="projects-header">
+    <div class="projects-header reveal">
       <h2 class="section-subtitle">My Work</h2>
       <h1 class="section-title">Featured Projects</h1>
     </div>
-    <div class="projects-container">
-      <div class="project-card" data-speed="0.8">
-        <div class="card-content">
-          <div class="card-image-wrapper">
-            <img src="./assets/AirbnbApp.png" alt="Airbnb Clone" class="card-image" />
-            <div class="card-overlay"></div>
+
+    <!-- ===== FEATURED PROJECTS (same markup as projects.html) ===== -->
+    <main class="projects-main" style="padding: 0 5% 40px;">
+      <div class="featured-cards">
+        <!-- Airbnb -->
+        <div class="pcard" id="proj-1">
+          <div class="pcard-img">
+            <img src="./assets/AirbnbApp.png" alt="Airbnb Clone" />
+            <div class="pcard-img-overlay"></div>
+            <span class="pcard-num">01 / 04</span>
           </div>
-          <div class="card-info">
-            <h2 class="card-title">AirBnB Web App 🛏️</h2>
-            <div class="card-tags">
-              <span class="tech-tag">MERN Stack</span>
-              <span class="tech-tag">Authentication</span>
-              <span class="tech-tag">Booking System</span>
+          <div class="pcard-info">
+            <div class="pcard-tags">
+              <span class="ptag">MERN Stack</span>
+              <span class="ptag">Authentication</span>
+              <span class="ptag">Booking System</span>
             </div>
-            <p class="card-description">
-              Developed a full-stack Airbnb clone with user authentication,
-              property listings, booking functionality, and responsive design.
-              Built with Core JavaScript, Node, Express, and MongoDB.
+            <h3>AirBnB Web App 🛏️</h3>
+            <p>
+              A full-stack Airbnb clone with user authentication, property listings,
+              booking functionality, and responsive design. Built with Core JavaScript,
+              Node.js, Express, and MongoDB.
             </p>
-            <a href="https://airbnb-project-uucp.onrender.com/listings" target="_blank" class="project-link">
-              View Project <i class="ri-arrow-right-line"></i>
-            </a>
+            <div class="pcard-links">
+              <a href="https://airbnb-project-uucp.onrender.com/listings" target="_blank" class="plink-solid">
+                Live Demo <i class="ri-external-link-line"></i>
+              </a>
+              <a href="https://github.com/naitikhoriya1/Airbnb" target="_blank" class="plink-ghost">
+                Source Code <i class="ri-github-fill"></i>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="project-card" data-speed="0.6">
-        <div class="card-content">
-          <div class="card-image-wrapper">
-            <img src="./assets/Colors.png" alt="Colors Combinations" class="card-image" />
-            <div class="card-overlay"></div>
+        <!-- Colors -->
+        <div class="pcard" id="proj-2">
+          <div class="pcard-img">
+            <img src="./assets/Colors.png" alt="Colors Combinations" />
+            <div class="pcard-img-overlay"></div>
+            <span class="pcard-num">02 / 04</span>
           </div>
-          <div class="card-info">
-            <h2 class="card-title">Colors-Combinations 🎨</h2>
-            <div class="card-tags">
-              <span class="tech-tag">GSAP</span>
-              <span class="tech-tag">ScrollTrigger</span>
-              <span class="tech-tag">Responsive Design</span>
+          <div class="pcard-info">
+            <div class="pcard-tags">
+              <span class="ptag">GSAP</span>
+              <span class="ptag">ScrollTrigger</span>
+              <span class="ptag">Responsive Design</span>
             </div>
-            <p class="card-description">
-              Created a full-stack Desiviski Chai Kullad brand platform with
-              vibrant color combinations, GSAP animations, ScrollTrigger
-              effects, and a responsive design for an engaging user
-              experience.
+            <h3>Colors-Combinations 🎨</h3>
+            <p>
+              A brand platform for Desiviski Chai Kullad featuring vibrant color combinations,
+              smooth GSAP animations, ScrollTrigger effects, and a fully responsive layout
+              for an engaging user experience.
             </p>
-            <a href="https://colors-combinations.vercel.app/" target="_blank" class="project-link">
-              View Project <i class="ri-arrow-right-line"></i>
-            </a>
+            <div class="pcard-links">
+              <a href="https://colors-combinations.vercel.app/" target="_blank" class="plink-solid">
+                Live Demo <i class="ri-external-link-line"></i>
+              </a>
+              <a href="https://github.com/naitikhoriya1/Colors-Combinations" target="_blank" class="plink-ghost">
+                Source Code <i class="ri-github-fill"></i>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="project-card" data-speed="0.7">
-        <div class="card-content">
-          <div class="card-image-wrapper">
-            <img src="./assets/UberApp.png" alt="Uber Clone" class="card-image" />
-            <div class="card-overlay"></div>
+        <!-- Uber -->
+        <div class="pcard" id="proj-3">
+          <div class="pcard-img">
+            <img src="./assets/UberApp.png" alt="Uber Clone" />
+            <div class="pcard-img-overlay"></div>
+            <span class="pcard-num">03 / 04</span>
           </div>
-          <div class="card-info">
-            <h2 class="card-title">Uber App 🚕</h2>
-            <div class="card-tags">
-              <span class="tech-tag">MERN Stack</span>
-              <span class="tech-tag">Real-time Tracking</span>
-              <span class="tech-tag">Payment Integration</span>
+          <div class="pcard-info">
+            <div class="pcard-tags">
+              <span class="ptag">MERN Stack</span>
+              <span class="ptag">Real-time</span>
+              <span class="ptag">Payments</span>
             </div>
-            <p class="card-description">
-              Developed a full-stack Uber clone using the MERN stack,
-              featuring real-time ride booking, driver tracking, fare
-              calculation, user authentication, payment gateway integration,
-              and a responsive user interface.
+            <h3>Uber App 🚕</h3>
+            <p>
+              A full-stack Uber clone using the MERN stack with real-time ride booking,
+              live driver tracking, fare calculation, user authentication, and payment
+              gateway integration.
             </p>
-            <a href="https://github.com/naitikhoriya1/Uber.git" target="_blank" class="project-link">
-              View Project <i class="ri-arrow-right-line"></i>
-            </a>
+            <div class="pcard-links">
+              <a href="https://github.com/naitikhoriya1/Uber" target="_blank" class="plink-solid">
+                Source Code <i class="ri-github-fill"></i>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="project-card" data-speed="0.9">
-        <div class="card-content">
-          <div class="card-image-wrapper">
-            <img src="./assets/ChaiApp.png" alt="Desiviski Chai" class="card-image" />
-            <div class="card-overlay"></div>
+        <!-- Chai Kullad -->
+        <div class="pcard" id="proj-4">
+          <div class="pcard-img">
+            <img src="./assets/ChaiApp.png" alt="Chai Kullad" />
+            <div class="pcard-img-overlay"></div>
+            <span class="pcard-num">04 / 04</span>
           </div>
-          <div class="card-info">
-            <h2 class="card-title">Chai Kullad 🌸</h2>
-            <div class="card-tags">
-              <span class="tech-tag">Full Stack</span>
-              <span class="tech-tag">E-commerce</span>
-              <span class="tech-tag">UI/UX Design</span>
+          <div class="pcard-info">
+            <div class="pcard-tags">
+              <span class="ptag">Full Stack</span>
+              <span class="ptag">E-commerce</span>
+              <span class="ptag">UI/UX Design</span>
             </div>
-            <p class="card-description">
-              Designed a full-stack Desiviski Chai Kullad brand platform
-              featuring product showcasing, online ordering, user
-              authentication, and a responsive UI to enhance customer
+            <h3>Chai Kullad 🌸</h3>
+            <p>
+              A full-stack brand platform for Desiviski Chai Kullad with product showcasing,
+              online ordering, user authentication, and a responsive UI to enhance customer
               engagement and brand visibility.
             </p>
-            <a href="https://desi-viski-chai.vercel.app/" target="_blank" class="project-link">
-              View Project <i class="ri-arrow-right-line"></i>
-            </a>
+            <div class="pcard-links">
+              <a href="https://desi-viski-chai.vercel.app/" target="_blank" class="plink-solid">
+                Live Demo <i class="ri-external-link-line"></i>
+              </a>
+              <a href="https://github.com/naitikhoriya1/kulladwithethic" target="_blank" class="plink-ghost">
+                Source Code <i class="ri-github-fill"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="projects-view-all reveal">
+      <a href="projects.html">
+        Explore All Projects <i class="ri-arrow-right-line"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- ===========================
+       GAP — MARQUEE
+  =========================== -->
+  <div class="gap backgroundGrid">
+    <div class="marquee-track" aria-hidden="true">
+      <span class="marquee-item">Creative Development <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Full-Stack Engineering <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Open Source <span class="marquee-dot"></span></span>
+      <span class="marquee-item">UI / UX Design <span class="marquee-dot"></span></span>
+      <span class="marquee-item">GSAP Animations <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Three.js <span class="marquee-dot"></span></span>
+      <!-- Duplicate for seamless loop -->
+      <span class="marquee-item">Creative Development <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Full-Stack Engineering <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Open Source <span class="marquee-dot"></span></span>
+      <span class="marquee-item">UI / UX Design <span class="marquee-dot"></span></span>
+      <span class="marquee-item">GSAP Animations <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Three.js <span class="marquee-dot"></span></span>
+    </div>
+  </div>
+
+  <!-- ===========================
+       PAGE 4 — OPEN SOURCE / PROCESS
+  =========================== -->
+  <div class="page4 backgroundGrid">
+    <div class="page4-left reveal-left">
+      <h5>Open Source Contributions</h5>
+      <h2>
+        Contributed to open-source projects, enhancing code quality and
+        collaborating with developers worldwide to create innovative solutions.
+      </h2>
+      <div class="page4-stats">
+        <div class="page4-stat">
+          <div class="page4-stat-icon"><i class="ri-github-fill"></i></div>
+          <div class="page4-stat-info">
+            <strong>GSSoC Extended '24</strong>
+            <span>GirlScript Summer of Code contributor</span>
+          </div>
+        </div>
+        <div class="page4-stat">
+          <div class="page4-stat-icon"><i class="ri-code-box-fill"></i></div>
+          <div class="page4-stat-info">
+            <strong>Hacktoberfest '23 – '24</strong>
+            <span>Active participant & PR contributor</span>
+          </div>
+        </div>
+        <div class="page4-stat">
+          <div class="page4-stat-icon"><i class="ri-global-line"></i></div>
+          <div class="page4-stat-info">
+            <strong>Community Builder</strong>
+            <span>Collaborating with developers worldwide</span>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="gap backgroundGrid"></div>
-  <div class="page4 backgroundGrid">
-    <div class="page4-left">
-      <h5>OPEN SOURCE CONTRIBUTIONS</h5>
-      <h2>
-        Contributed to open-source projects, enhancing <br />
-        code quality, <br />
-        and collaborating with developers <br />worldwide to create innovative
-        solutions.
-      </h2>
-    </div>
-    <div class="page4-right">
-      <div class="page4-right-up">
-        <div class="page4-right-up-img1">
-          <h5>1. Requirements Gathering</h5>
-          <img src="./assets/design1.jpeg" alt="" />
+
+    <div class="page4-right reveal-right">
+      <div class="process-row">
+        <div class="process-card">
+          <img src="./assets/design1.jpeg" alt="Requirements Gathering" />
+          <div class="process-card-label">
+            <span class="step-num">1</span>
+            Requirements Gathering
+          </div>
         </div>
-        <div class="page4-right-up-img2">
-          <h5>2. Designing</h5>
-          <img src="./assets/design2.jpeg" alt="" />
+        <div class="process-card">
+          <img src="./assets/design2.jpeg" alt="Designing" />
+          <div class="process-card-label">
+            <span class="step-num">2</span>
+            Designing
+          </div>
         </div>
       </div>
-      <div class="page4-right-down">
-        <div class="page4-right-down-img1">
-          <img src="./assets/design3.jpeg" alt="" />
-          <h5>3. Development</h5>
+      <div class="process-card process-card-full">
+        <img src="./assets/design3.jpeg" alt="Development" />
+        <div class="process-card-label">
+          <span class="step-num">3</span>
+          Development
         </div>
       </div>
     </div>
   </div>
 
+  <!-- ===========================
+       FOOTER
+  =========================== -->
   <div class="footer">
     <div class="footer-left">
       <h1>Let's Collaborate</h1>
@@ -280,11 +1791,15 @@
         <h2>ethicalkhoriya@gmail.com</h2>
       </div>
       <div class="footer-link">
-        <a href="https://github.com/naitikhoriya1" target="_blank">Github <i class="ri-github-fill"></i></a>
-        <a href="https://www.linkedin.com/in/naitik-khoriya-4962a9229/" target="_blank">LinkedIn <i
-            class="ri-linkedin-fill"></i></a>
-        <a href="https://www.instagram.com/ethical_khoriya/" target="_blank">Instagram <i
-            class="ri-instagram-fill"></i></a>
+        <a href="https://github.com/naitikhoriya1" target="_blank">
+          Github <i class="ri-github-fill"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/naitik-khoriya-4962a9229/" target="_blank">
+          LinkedIn <i class="ri-linkedin-fill"></i>
+        </a>
+        <a href="https://www.instagram.com/ethical_khoriya/" target="_blank">
+          Instagram <i class="ri-instagram-fill"></i>
+        </a>
       </div>
     </div>
   </div>
@@ -297,6 +1812,88 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script src="script.js"></script>
+
+  <script>
+    // ===== SCROLL REVEAL =====
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
+    );
+
+    document
+      .querySelectorAll(".reveal, .reveal-left, .reveal-right")
+      .forEach((el) => revealObserver.observe(el));
+
+    // ===== GSAP SCROLL ANIMATIONS =====
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Page 2 parallax on middle image
+    gsap.to(".page2-middle", {
+      backgroundPositionY: "30%",
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".page2",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 1,
+      },
+    });
+
+    // Project cards — stagger reveal via IntersectionObserver (same as projects.html)
+    const pcardObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll(".pcard").forEach((card, i) => {
+      card.style.transition = `opacity 0.9s ease ${i * 0.1}s, transform 0.9s cubic-bezier(0.34,1.56,0.64,1) ${i * 0.1}s, box-shadow 0.4s ease`;
+      pcardObserver.observe(card);
+    });
+
+    // Page4 stats stagger
+    gsap.utils.toArray(".page4-stat").forEach((stat, i) => {
+      gsap.from(stat, {
+        x: -30,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: stat,
+          start: "top 88%",
+          toggleActions: "play none none none",
+        },
+        delay: i * 0.12,
+      });
+    });
+
+    // Process cards stagger
+    gsap.utils.toArray(".process-card").forEach((card, i) => {
+      gsap.from(card, {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 88%",
+          toggleActions: "play none none none",
+        },
+        delay: i * 0.12,
+      });
+    });
+  </script>
 </body>
 
 </html>

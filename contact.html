@@ -1,148 +1,837 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact - ethic</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  </head>
-  <style>
-    body {
-      background-color: #f5eddc;
-      background-image: linear-gradient(
-          to right,
-          rgba(9, 9, 9, 0.05) 1px,
-          transparent 1px
-        ),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
-      background-size: 40px 40px;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — ethic | Naitik Khoriya</title>
+  <meta name="description"
+    content="Get in touch with Naitik Khoriya — open for freelance projects, collaborations, and exciting opportunities." />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</head>
+<style>
+  /* ===== PAGE BASE ===== */
+  body {
+    background-color: #f5eddc;
+    background-image: linear-gradient(to right, rgba(9, 9, 9, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Hide particle canvas — too visible on dark hero */
+  #particle-cursor {
+    display: none !important;
+  }
+
+  /* ===== CONTACT HERO ===== */
+  .contact-hero {
+    min-height: 48vh;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: 120px 6% 60px;
+    position: relative;
+    overflow: hidden;
+    background: #1e1005;
+  }
+
+  .contact-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom right, rgba(224, 123, 57, 0.12) 0%, transparent 60%),
+      linear-gradient(to top left, rgba(63, 104, 166, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  /* Animated noise orbs */
+  .contact-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+  }
+
+  .contact-orb-1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(224, 123, 57, 0.15), transparent 70%);
+    top: -100px;
+    right: 0;
+    animation: orbFloat 7s ease-in-out infinite alternate;
+  }
+
+  .contact-orb-2 {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(63, 104, 166, 0.12), transparent 70%);
+    bottom: -50px;
+    left: 5%;
+    animation: orbFloat 9s 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes orbFloat {
+    from {
+      transform: translate(0, 0) scale(1);
     }
-  </style>
-  <body class="contact-page">
-    <div id="particle-cursor"></div>
-    <div class="cursor"></div>
-    <div class="page1">
-      <div class="navbar">
-        <div class="navbar-left">
-          <h1>ethic</h1>
-        </div>
-        <div class="navbar-right">
-          <h2><a href="index.html">Home</a></h2>
-          <h2><a href="about.html">About</a></h2>
-          <h2><a href="projects.html">Projects</a></h2>
-          <h2><a href="contact.html">Contact</a></h2>
-          <i class="ri-menu-3-fill" id="menu-toggle">Menu</i>
-        </div>
-      </div>
-      <section class="contact-section">
-        <div class="contact-container">
-          <h1>Get in touch</h1>
-          <p>Have a question or want to work together? Send me a message.</p>
-          <form id="contact-form" class="contact-form">
-            <div class="form-row">
-              <label for="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Your name"
-                required
-              />
-            </div>
-            <div class="form-row">
-              <label for="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="you@example.com"
-                required
-              />
-            </div>
-            <div class="form-row">
-              <label for="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="6"
-                placeholder="Write your message..."
-                required
-              ></textarea>
-            </div>
-            <button type="submit" class="contact-submit">Send Message</button>
-          </form>
-        </div>
-      </section>
 
-      <div class="footer">
-        <div class="footer-left">
-          <h1>Let's Collaborate</h1>
-          <h3>© ethical_khoriya</h3>
-        </div>
-        <div class="footer-right">
-          <div class="gmail">
-            <h2>ethicalkhoriya@gmail.com</h2>
-          </div>
-          <div class="footer-link">
-            <a href="https://github.com/naitikhoriya1" target="_blank"
-              >Github <i class="ri-github-fill"></i
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/naitik-khoriya-4962a9229/"
-              target="_blank"
-              >LinkedIn <i class="ri-linkedin-fill"></i
-            ></a>
-            <a href="https://www.instagram.com/ethical_khoriya/" target="_blank"
-              >Instagram <i class="ri-instagram-fill"></i
-            ></a>
-          </div>
-        </div>
+    to {
+      transform: translate(20px, -20px) scale(1.15);
+    }
+  }
+
+  .contact-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+  }
+
+  .contact-hero-inner .eyebrow {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #e07b39;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s ease forwards;
+  }
+
+  .contact-hero-inner .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 36px;
+    height: 2px;
+    background: #e07b39;
+  }
+
+  .contact-hero-inner h1 {
+    font-family: "vilaka", serif;
+    font-size: clamp(3.5rem, 8vw, 9rem);
+    font-weight: 400;
+    color: #fbefd9;
+    line-height: 0.92;
+    letter-spacing: -2px;
+    opacity: 0;
+    animation: fadeUp 1s 0.35s ease forwards;
+  }
+
+  .contact-hero-inner h1 em {
+    font-style: normal;
+    -webkit-text-stroke: 1.5px #e07b39;
+    color: transparent;
+  }
+
+  .hero-availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 32px;
+    padding: 10px 20px;
+    background: rgba(251, 239, 217, 0.07);
+    border: 1px solid rgba(251, 239, 217, 0.12);
+    border-radius: 50px;
+    color: rgba(251, 239, 217, 0.75);
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.65s ease forwards;
+  }
+
+  .availability-dot {
+    width: 8px;
+    height: 8px;
+    background: #4ade80;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4);
+    }
+
+    50% {
+      box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
+    }
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ===== MAIN CONTACT SECTION ===== */
+  .contact-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 70vh;
+  }
+
+  /* LEFT — Info Panel */
+  .contact-info-panel {
+    background: #f5eddc;
+    padding: 80px 6% 80px 6%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+    position: relative;
+    border-right: 1px solid rgba(30, 16, 5, 0.08);
+  }
+
+  .contact-info-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to right, rgba(9, 9, 9, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  .section-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #e07b39;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .section-label::before {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    background: currentColor;
+  }
+
+  .contact-info-panel h2 {
+    font-family: "vilaka", serif;
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    font-weight: 400;
+    color: #1e1005;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .contact-info-panel>p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #4a3728;
+    max-width: 420px;
+  }
+
+  /* Contact detail cards */
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-detail-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 24px;
+    background: #fff;
+    border: 1px solid rgba(30, 16, 5, 0.07);
+    border-radius: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .contact-detail-card:hover {
+    border-color: rgba(224, 123, 57, 0.3);
+    transform: translateX(8px);
+    box-shadow: 0 8px 24px rgba(30, 16, 5, 0.08);
+  }
+
+  .detail-icon {
+    width: 48px;
+    height: 48px;
+    background: #1e1005;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e07b39;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+
+  .contact-detail-card:hover .detail-icon {
+    transform: rotate(-10deg) scale(1.1);
+  }
+
+  .detail-info span {
+    display: block;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #7a6555;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+
+  .detail-info strong {
+    font-size: 0.95rem;
+    color: #1e1005;
+    font-weight: 600;
+  }
+
+  /* Social links */
+  .contact-socials {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .contact-socials h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #7a6555;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .social-links-row {
+    display: flex;
+    gap: 12px;
+  }
+
+  .social-link {
+    width: 48px;
+    height: 48px;
+    background: rgba(30, 16, 5, 0.05);
+    border: 1px solid rgba(30, 16, 5, 0.08);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4a3728;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .social-link:hover {
+    background: #1e1005;
+    color: #e07b39;
+    border-color: #1e1005;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(30, 16, 5, 0.2);
+  }
+
+  /* RIGHT — Form Panel */
+  .contact-form-panel {
+    background: #1e1005;
+    padding: 80px 6%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-form-panel::before {
+    content: "Say\AHello";
+    white-space: pre;
+    position: absolute;
+    right: -20px;
+    bottom: 20px;
+    font-family: "vilaka", serif;
+    font-size: 10rem;
+    color: rgba(251, 239, 217, 0.03);
+    font-weight: 400;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .form-header {
+    margin-bottom: 40px;
+  }
+
+  .form-header .section-label {
+    color: #e07b39;
+  }
+
+  .form-header h3 {
+    font-family: "vilaka", serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: #fbefd9;
+    line-height: 1.1;
+  }
+
+  /* Form styles */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-row-double {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-row label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(251, 239, 217, 0.5);
+    font-weight: 600;
+  }
+
+  .form-row input,
+  .form-row textarea,
+  .form-row select {
+    background: rgba(251, 239, 217, 0.06);
+    border: 1px solid rgba(251, 239, 217, 0.1);
+    border-radius: 12px;
+    padding: 14px 18px;
+    color: #fbefd9;
+    font-size: 0.95rem;
+    font-family: "threefont", sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+
+  .form-row input::placeholder,
+  .form-row textarea::placeholder {
+    color: rgba(251, 239, 217, 0.25);
+  }
+
+  .form-row input:focus,
+  .form-row textarea:focus {
+    border-color: #e07b39;
+    background: rgba(224, 123, 57, 0.06);
+    box-shadow: 0 0 0 3px rgba(224, 123, 57, 0.1);
+  }
+
+  .form-row textarea {
+    resize: none;
+    height: 140px;
+  }
+
+  .form-row select option {
+    background: #1e1005;
+    color: #fbefd9;
+  }
+
+  .contact-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 36px;
+    background: #e07b39;
+    color: #1e1005;
+    border: 2px solid #e07b39;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: "threefont", sans-serif;
+    transition: all 0.35s ease;
+    align-self: flex-start;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-submit::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #fff, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .contact-submit:hover {
+    background: transparent;
+    color: #e07b39;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(224, 123, 57, 0.35);
+  }
+
+  .contact-submit:active {
+    transform: translateY(0);
+  }
+
+  .contact-submit i {
+    font-size: 1.1rem;
+  }
+
+  /* Success / error feedback */
+  .form-feedback {
+    display: none;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .form-feedback.success {
+    display: flex;
+    background: rgba(74, 222, 128, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    color: #4ade80;
+  }
+
+  .form-feedback.error {
+    display: flex;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #f87171;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    padding-top: 3%;
+    height: 50%;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(135deg, #fbefd9, #cab8b4, #e3c7a6, #ffffff);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 960px) {
+    .contact-main {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-info-panel {
+      border-right: none;
+      border-bottom: 1px solid rgba(30, 16, 5, 0.08);
+    }
+
+    .form-row-double {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .contact-hero-inner h1 {
+      font-size: clamp(3rem, 14vw, 5rem);
+    }
+
+    .contact-info-panel,
+    .contact-form-panel {
+      padding: 60px 5%;
+    }
+  }
+</style>
+
+<body>
+  <div id="particle-cursor"></div>
+  <div class="cursor"></div>
+
+  <!-- Navbar -->
+  <div class="page1" style="height: 10vh">
+    <div class="navbar">
+      <div class="navbar-left">
+        <h1><a href="index.html">ethic</a></h1>
+      </div>
+      <div class="navbar-right">
+        <h2><a href="index.html">Home</a></h2>
+        <h2><a href="about.html">About</a></h2>
+        <h2><a href="projects.html">Projects</a></h2>
+        <h2><a href="contact.html" class="active">Contact</a></h2>
+        <i class="ri-menu-3-fill" id="menu-toggle">Menu</i>
+      </div>
+    </div>
+    <div class="menu-overlay" id="menu-overlay">
+      <button class="menu-close" id="menu-close" aria-label="Close menu">&times;</button>
+      <nav class="menu-nav">
+        <ul>
+          <li><a href="index.html" class="menu-link">Home</a></li>
+          <li><a href="about.html" class="menu-link">About</a></li>
+          <li><a href="projects.html" class="menu-link">Projects</a></li>
+          <li><a href="contact.html" class="menu-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div id="imgs">
+        <img src="./MyImg/scroll1.jpg" alt="" />
+        <img src="./MyImg/scroll2.jpg" alt="" />
+        <img src="./MyImg/scroll3.jpg" alt="" />
+        <img src="./MyImg/scroll4.jpg" alt="" />
+        <img src="./MyImg/scroll5.jpg" alt="" />
+        <img src="./MyImg/scroll6.jpg" alt="" />
+        <img src="./MyImg/scroll7.jpg" alt="" />
+        <img src="./MyImg/scroll8.jpeg" alt="" />
+        <img src="./MyImg/scroll9.jpeg" alt="" />
+        <img src="./MyImg/scroll10.jpeg" alt="" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="contact-hero">
+    <div class="contact-orb contact-orb-1"></div>
+    <div class="contact-orb contact-orb-2"></div>
+    <div class="contact-hero-inner">
+      <p class="eyebrow">Let's talk</p>
+      <h1>Get In <em>Touch</em></h1>
+      <div class="hero-availability">
+        <span class="availability-dot"></span>
+        Available for freelance &amp; full-time opportunities
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAIN CONTACT ===== -->
+  <div class="contact-main">
+
+    <!-- LEFT — Info -->
+    <div class="contact-info-panel">
+      <div>
+        <p class="section-label">Contact Info</p>
+        <h2>Let's Build Something Great Together</h2>
+        <p>
+          Have a project in mind, want to collaborate, or just want to say hi?
+          I'd love to hear from you. Drop a message and I'll get back within 24 hours.
+        </p>
       </div>
 
-      <div class="menu-overlay" id="menu-overlay">
-        <button class="menu-close" id="menu-close" aria-label="Close menu">
-          &times;
-        </button>
-        <nav class="menu-nav">
-          <ul>
-            <li><a href="index.html" class="menu-link">Home</a></li>
-            <li><a href="about.html" class="menu-link">About</a></li>
-            <li><a href="projects.html" class="menu-link">Projects</a></li>
-            <li><a href="contact.html" class="menu-link">Contact</a></li>
-          </ul>
-        </nav>
-        <div id="imgs">
-          <img src="./MyImg/scroll1.jpg" alt="" />
-          <img src="./MyImg/scroll2.jpg" alt="" />
-          <img src="./MyImg/scroll3.jpg" alt="" />
-          <img src="./MyImg/scroll4.jpg" alt="" />
-          <img src="./MyImg/scroll5.jpg" alt="" />
-          <img src="./MyImg/scroll6.jpg" alt="" />
-          <img src="./MyImg/scroll7.jpg" alt="" />
-          <img src="./MyImg/scroll8.jpeg" alt="" />
-          <img src="./MyImg/scroll9.jpeg" alt="" />
-          <img src="./MyImg/scroll10.jpeg" alt="" />
+      <div class="contact-details">
+        <a href="mailto:ethicalkhoriya@gmail.com" class="contact-detail-card">
+          <div class="detail-icon"><i class="ri-mail-line"></i></div>
+          <div class="detail-info">
+            <span>Email</span>
+            <strong>ethicalkhoriya@gmail.com</strong>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/naitik-khoriya-4962a9229/" target="_blank" class="contact-detail-card">
+          <div class="detail-icon"><i class="ri-linkedin-fill"></i></div>
+          <div class="detail-info">
+            <span>LinkedIn</span>
+            <strong>naitik-khoriya</strong>
+          </div>
+        </a>
+        <a href="https://github.com/naitikhoriya1" target="_blank" class="contact-detail-card">
+          <div class="detail-icon"><i class="ri-github-fill"></i></div>
+          <div class="detail-info">
+            <span>GitHub</span>
+            <strong>naitikhoriya1</strong>
+          </div>
+        </a>
+      </div>
+
+      <div class="contact-socials">
+        <h4>Also find me on</h4>
+        <div class="social-links-row">
+          <a href="https://github.com/naitikhoriya1" target="_blank" class="social-link" title="GitHub">
+            <i class="ri-github-fill"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/naitik-khoriya-4962a9229/" target="_blank" class="social-link"
+            title="LinkedIn">
+            <i class="ri-linkedin-fill"></i>
+          </a>
+          <a href="https://www.instagram.com/ethical_khoriya/" target="_blank" class="social-link" title="Instagram">
+            <i class="ri-instagram-fill"></i>
+          </a>
+          <a href="mailto:ethicalkhoriya@gmail.com" class="social-link" title="Email">
+            <i class="ri-mail-line"></i>
+          </a>
         </div>
       </div>
     </div>
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
-      integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script src="script.js"></script>
-  </body>
+    <!-- RIGHT — Form -->
+    <div class="contact-form-panel">
+      <div class="form-header">
+        <p class="section-label">Send a message</p>
+        <h3>Drop Me a Line</h3>
+      </div>
+
+      <form id="contact-form" class="contact-form" novalidate>
+        <div class="form-row-double">
+          <div class="form-row">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Naitik Khoriya" required />
+          </div>
+          <div class="form-row">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject">
+            <option value="">Select a topic…</option>
+            <option value="freelance">Freelance Project</option>
+            <option value="fulltime">Full-time Opportunity</option>
+            <option value="collab">Collaboration</option>
+            <option value="feedback">Feedback</option>
+            <option value="other">Just saying hi 👋</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell me about your project or idea…" required></textarea>
+        </div>
+
+        <div class="form-feedback" id="form-feedback"></div>
+
+        <button type="submit" class="contact-submit" id="submit-btn">
+          Send Message <i class="ri-send-plane-line"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <div class="footer">
+    <div class="footer-left">
+      <h1>Let's Collaborate</h1>
+      <h3>© ethical_khoriya</h3>
+    </div>
+    <div class="footer-right">
+      <div class="gmail">
+        <h2>ethicalkhoriya@gmail.com</h2>
+      </div>
+      <div class="footer-link">
+        <a href="https://github.com/naitikhoriya1" target="_blank">Github <i class="ri-github-fill"></i></a>
+        <a href="https://www.linkedin.com/in/naitik-khoriya-4962a9229/" target="_blank">LinkedIn <i
+            class="ri-linkedin-fill"></i></a>
+        <a href="https://www.instagram.com/ethical_khoriya/" target="_blank">Instagram <i
+            class="ri-instagram-fill"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+    integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+    integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="script.js"></script>
+
+  <script>
+    // ===== GSAP PANEL ENTRANCES =====
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(".contact-info-panel > *", {
+      opacity: 0,
+      x: -30,
+      duration: 0.9,
+      ease: "power3.out",
+      stagger: 0.15,
+      scrollTrigger: {
+        trigger: ".contact-info-panel",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+
+    gsap.from(".contact-form-panel > *", {
+      opacity: 0,
+      x: 30,
+      duration: 0.9,
+      ease: "power3.out",
+      stagger: 0.15,
+      scrollTrigger: {
+        trigger: ".contact-form-panel",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+
+    // ===== FORM SUBMISSION =====
+    const form = document.getElementById("contact-form");
+    const btn = document.getElementById("submit-btn");
+    const fb = document.getElementById("form-feedback");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      btn.disabled = true;
+      btn.innerHTML = 'Sending… <i class="ri-loader-4-line" style="animation:spin 1s linear infinite"></i>';
+
+      // Basic validation
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !message) {
+        showFeedback("error", "Please fill in all required fields.");
+        resetBtn();
+        return;
+      }
+
+      // EmailJS integration (user needs to configure their own keys)
+      try {
+        // Uncomment and configure with your EmailJS credentials:
+        // await emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", form, "YOUR_PUBLIC_KEY");
+
+        // Simulated success for demo:
+        await new Promise(r => setTimeout(r, 1200));
+        showFeedback("success", "Message sent! I'll get back to you within 24 hours. 🎉");
+        form.reset();
+      } catch (err) {
+        showFeedback("error", "Something went wrong. Please email me directly at ethicalkhoriya@gmail.com");
+      }
+
+      resetBtn();
+    });
+
+    function showFeedback(type, msg) {
+      fb.className = `form-feedback ${type}`;
+      fb.innerHTML = `<i class="ri-${type === 'success' ? 'check-circle' : 'error-warning'}-line"></i> ${msg}`;
+      setTimeout(() => { fb.className = "form-feedback"; }, 6000);
+    }
+
+    function resetBtn() {
+      btn.disabled = false;
+      btn.innerHTML = 'Send Message <i class="ri-send-plane-line"></i>';
+    }
+
+    // Style spin keyframe inline
+    const style = document.createElement("style");
+    style.textContent = "@keyframes spin { to { transform: rotate(360deg); } }";
+    document.head.appendChild(style);
+  </script>
+</body>
+
 </html>

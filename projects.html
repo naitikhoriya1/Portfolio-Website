@@ -1,302 +1,886 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects - ethic</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div id="particle-cursor"></div>
-    <div class="cursor"></div>
-    <div class="page1" style="height: 10vh">
-      <div class="navbar">
-        <div class="navbar-left">
-          <h1><a href="index.html">ethic</a></h1>
-        </div>
-        <div class="navbar-right">
-          <h2><a href="index.html">Home</a></h2>
-          <h2><a href="about.html">About</a></h2>
-          <h2><a href="projects.html">Projects</a></h2>
-          <h2><a href="contact.html">Contact</a></h2>
-          <i class="ri-menu-3-fill" id="menu-toggle">Menu</i>
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — ethic | Naitik Khoriya</title>
+  <meta name="description"
+    content="Explore Naitik Khoriya's portfolio of full-stack web apps, creative landing pages, and open-source contributions." />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+<style>
+  /* ===== PAGE BASE ===== */
+  body {
+    background-color: #f5eddc;
+    background-image: linear-gradient(to right, rgba(9, 9, 9, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* ===== PROJECTS HERO ===== */
+  .projects-hero-section {
+    min-height: 52vh;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: 120px 6% 60px;
+    position: relative;
+    overflow: hidden;
+    background: #1e1005;
+  }
+
+  .projects-hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(224, 123, 57, 0.1) 0%, transparent 60%),
+      url("https://i.pinimg.com/736x/ab/e2/62/abe262fa3a79d88c42da57d6ece03fa1.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+  }
+
+  .projects-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    width: 100%;
+  }
+
+  .projects-hero-inner .eyebrow {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #e07b39;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s ease forwards;
+  }
+
+  .projects-hero-inner .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 36px;
+    height: 2px;
+    background: #e07b39;
+  }
+
+  .projects-hero-inner h1 {
+    font-family: "vilaka", serif;
+    font-size: clamp(4rem, 9vw, 10rem);
+    font-weight: 400;
+    color: #fbefd9;
+    line-height: 0.9;
+    letter-spacing: -2px;
+    opacity: 0;
+    animation: fadeUp 1s 0.35s ease forwards;
+  }
+
+  .projects-hero-inner h1 em {
+    font-style: normal;
+    -webkit-text-stroke: 1.5px #e07b39;
+    color: transparent;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s ease forwards;
+  }
+
+  .hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(251, 239, 217, 0.55);
+    font-size: 0.9rem;
+  }
+
+  .hero-meta-item i {
+    color: #e07b39;
+    font-size: 1.1rem;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ===== FILTER BAR ===== */
+  .filter-bar {
+    padding: 40px 6% 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(30, 16, 5, 0.08);
+    background: #f5eddc;
+    position: sticky;
+    top: 72px;
+    z-index: 50;
+    backdrop-filter: blur(10px);
+  }
+
+  .filter-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #7a6555;
+    font-weight: 600;
+    margin-right: 8px;
+  }
+
+  .filter-btn {
+    padding: 8px 20px;
+    border-radius: 50px;
+    border: 1px solid rgba(30, 16, 5, 0.12);
+    background: transparent;
+    color: #4a3728;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: "threefont", sans-serif;
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    background: #1e1005;
+    color: #fbefd9;
+    border-color: #1e1005;
+  }
+
+  /* ===== MAIN PROJECTS GRID ===== */
+  .projects-main {
+    padding: 80px 6%;
+  }
+
+  .projects-grid-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .section-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #e07b39;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .section-label::before {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    background: currentColor;
+  }
+
+  .projects-grid-header h2 {
+    font-family: "vilaka", serif;
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+    font-weight: 400;
+    color: #1e1005;
+    line-height: 1.05;
+  }
+
+  .project-count {
+    font-family: "vilaka", serif;
+    font-size: 5rem;
+    font-weight: 400;
+    color: rgba(30, 16, 5, 0.08);
+    line-height: 1;
+  }
+
+  /* Full-width featured cards */
+  .featured-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 80px;
+  }
+
+  .pcard {
+    background: #1e1005;
+    border-radius: 24px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    box-shadow: 0 20px 50px rgba(30, 16, 5, 0.15);
+    border: 1px solid rgba(251, 239, 217, 0.05);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+  }
+
+  .pcard.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .pcard:nth-child(even) {
+    grid-template-columns: 45% 55%;
+  }
+
+  .pcard:nth-child(even) .pcard-img {
+    order: 2;
+  }
+
+  .pcard:nth-child(even) .pcard-info {
+    order: 1;
+  }
+
+  .pcard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 36px 70px rgba(30, 16, 5, 0.25);
+  }
+
+  .pcard-img {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+  }
+
+  .pcard-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+    filter: brightness(0.9);
+  }
+
+  .pcard:hover .pcard-img img {
+    transform: scale(1.05);
+  }
+
+  .pcard-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(224, 123, 57, 0.12), rgba(63, 104, 166, 0.12));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .pcard:hover .pcard-img-overlay {
+    opacity: 1;
+  }
+
+  .pcard-num {
+    position: absolute;
+    bottom: 20px;
+    left: 24px;
+    font-family: "vilaka", serif;
+    font-size: 1rem;
+    color: rgba(251, 239, 217, 0.5);
+    font-weight: 400;
+    letter-spacing: 2px;
+  }
+
+  .pcard-info {
+    padding: 52px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .pcard-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .ptag {
+    padding: 5px 14px;
+    background: rgba(224, 123, 57, 0.12);
+    border: 1px solid rgba(224, 123, 57, 0.3);
+    border-radius: 50px;
+    font-size: 0.72rem;
+    color: #e07b39;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .pcard-info h3 {
+    font-family: "vilaka", serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: #fbefd9;
+    line-height: 1.1;
+  }
+
+  .pcard-info p {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: rgba(251, 239, 217, 0.6);
+    margin: 0;
+  }
+
+  .pcard-links {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+  }
+
+  .plink-solid {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 24px;
+    background: #e07b39;
+    color: #1e1005;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: 2px solid #e07b39;
+    transition: all 0.3s ease;
+  }
+
+  .plink-solid:hover {
+    background: transparent;
+    color: #fbefd9;
+    transform: translateY(-3px);
+  }
+
+  .plink-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 24px;
+    border: 2px solid rgba(251, 239, 217, 0.2);
+    color: rgba(251, 239, 217, 0.75);
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .plink-ghost:hover {
+    border-color: #fbefd9;
+    color: #fbefd9;
+    transform: translateY(-3px);
+  }
+
+  /* ===== LANDING PAGES SECTION ===== */
+  .landing-section {
+    background: #1e1005;
+    padding: 100px 6%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .landing-section::before {
+    content: "More\AWork";
+    white-space: pre;
+    position: absolute;
+    right: 3%;
+    top: 40px;
+    font-family: "vilaka", serif;
+    font-size: 12rem;
+    color: rgba(251, 239, 217, 0.03);
+    font-weight: 400;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .landing-header {
+    margin-bottom: 60px;
+  }
+
+  .landing-header .section-label {
+    color: #e07b39;
+  }
+
+  .landing-header h2 {
+    font-family: "vilaka", serif;
+    font-size: clamp(2.5rem, 4vw, 4.5rem);
+    font-weight: 400;
+    color: #fbefd9;
+    line-height: 1.05;
+  }
+
+  .landing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .lcard {
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+    background: rgba(251, 239, 217, 0.04);
+    border: 1px solid rgba(251, 239, 217, 0.07);
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .lcard.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .lcard:hover {
+    border-color: rgba(224, 123, 57, 0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.4);
+  }
+
+  .lcard img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+    filter: brightness(0.8) saturate(0.85);
+  }
+
+  .lcard:hover img {
+    transform: scale(1.06);
+  }
+
+  .lcard-footer {
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .lcard-footer h5 {
+    font-family: "vilaka", serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #fbefd9;
+    text-transform: capitalize;
+  }
+
+  .lcard-footer i {
+    font-size: 1.2rem;
+    color: #e07b39;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: all 0.3s ease;
+  }
+
+  .lcard:hover .lcard-footer i {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    padding-top: 3%;
+    height: 50%;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(135deg, #fbefd9, #cab8b4, #e3c7a6, #ffffff);
+  }
+
+  /* ===== SCROLL REVEAL ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.85s ease, transform 0.85s ease;
+  }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.85s ease, transform 0.85s ease;
+  }
+
+  .reveal.visible,
+  .reveal-left.visible {
+    opacity: 1;
+    transform: translate(0);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1000px) {
+
+    .pcard,
+    .pcard:nth-child(even) {
+      grid-template-columns: 1fr;
+    }
+
+    .pcard:nth-child(even) .pcard-img {
+      order: 0;
+    }
+
+    .pcard:nth-child(even) .pcard-info {
+      order: 0;
+    }
+
+    .pcard-img {
+      min-height: 280px;
+    }
+
+    .landing-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .projects-hero-inner h1 {
+      font-size: clamp(3rem, 14vw, 5rem);
+    }
+
+    .landing-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .pcard-info {
+      padding: 36px 28px;
+    }
+  }
+</style>
+
+<body>
+  <div id="particle-cursor"></div>
+  <!-- <div class="cursor"></div> -->
+
+  <!-- Navbar -->
+  <div class="page1" style="height: 10vh">
+    <div class="navbar">
+      <div class="navbar-left">
+        <h1><a href="index.html">ethic</a></h1>
       </div>
-      <div class="menu-overlay" id="menu-overlay">
-        <button class="menu-close" id="menu-close" aria-label="Close menu">
-          &times;
-        </button>
-        <nav class="menu-nav">
-          <ul>
-            <li><a href="index.html" class="menu-link">Home</a></li>
-            <li><a href="about.html" class="menu-link">About</a></li>
-            <li><a href="projects.html" class="menu-link">Projects</a></li>
-            <li><a href="contact.html" class="menu-link">Contact</a></li>
-          </ul>
-        </nav>
+      <div class="navbar-right">
+        <h2><a href="index.html">Home</a></h2>
+        <h2><a href="about.html">About</a></h2>
+        <h2><a href="projects.html" class="active">Projects</a></h2>
+        <h2><a href="contact.html">Contact</a></h2>
+        <i class="ri-menu-3-fill" id="menu-toggle">Menu</i>
       </div>
     </div>
+    <div class="menu-overlay" id="menu-overlay">
+      <button class="menu-close" id="menu-close" aria-label="Close menu">&times;</button>
+      <nav class="menu-nav">
+        <ul>
+          <li><a href="index.html" class="menu-link">Home</a></li>
+          <li><a href="about.html" class="menu-link">About</a></li>
+          <li><a href="projects.html" class="menu-link">Projects</a></li>
+          <li><a href="contact.html" class="menu-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 
-    <div class="projects-page backgroundGrid">
-      <div class="projects-hero">
-        <h1 class="glitch" data-text="My Projects">My Projects</h1>
-        <div class="projects-subtitle">Creative Web Development</div>
+  <!-- ===== HERO ===== -->
+  <section class="projects-hero-section">
+    <div class="projects-hero-inner">
+      <p class="eyebrow">Portfolio</p>
+      <h1>Selected <em>Work</em></h1>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <i class="ri-stack-line"></i>
+          <span>4 Full-Stack Projects</span>
+        </div>
+        <div class="hero-meta-item">
+          <i class="ri-layout-line"></i>
+          <span>6 Landing Pages</span>
+        </div>
+        <div class="hero-meta-item">
+          <i class="ri-github-line"></i>
+          <span>All on GitHub</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FILTER BAR ===== -->
+  <div class="filter-bar">
+    <span class="filter-label">Filter</span>
+    <button class="filter-btn active" data-filter="all" id="filter-all">All</button>
+    <button class="filter-btn" data-filter="fullstack" id="filter-fullstack">Full-Stack</button>
+    <button class="filter-btn" data-filter="frontend" id="filter-frontend">Frontend</button>
+    <button class="filter-btn" data-filter="landing" id="filter-landing">Landing Pages</button>
+  </div>
+
+  <!-- ===== FEATURED PROJECTS ===== -->
+  <main class="projects-main">
+    <div class="projects-grid-header reveal">
+      <div>
+        <p class="section-label">Full-Stack Apps</p>
+        <h2>Featured Projects</h2>
+      </div>
+      <span class="project-count">04</span>
+    </div>
+
+    <div class="featured-cards">
+      <!-- Airbnb -->
+      <div class="pcard" id="proj-1">
+        <div class="pcard-img">
+          <img src="./assets/AirbnbApp.png" alt="Airbnb Clone" />
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-num">01 / 04</span>
+        </div>
+        <div class="pcard-info">
+          <div class="pcard-tags">
+            <span class="ptag">MERN Stack</span>
+            <span class="ptag">Authentication</span>
+            <span class="ptag">Booking System</span>
+          </div>
+          <h3>AirBnB Web App 🛏️</h3>
+          <p>
+            A full-stack Airbnb clone with user authentication, property listings,
+            booking functionality, and responsive design. Built with Core JavaScript,
+            Node.js, Express, and MongoDB.
+          </p>
+          <div class="pcard-links">
+            <a href="https://airbnb-project-uucp.onrender.com/listings" target="_blank" class="plink-solid">
+              Live Demo <i class="ri-external-link-line"></i>
+            </a>
+            <a href="https://github.com/naitikhoriya1/Airbnb" target="_blank" class="plink-ghost">
+              Source Code <i class="ri-github-fill"></i>
+            </a>
+          </div>
+        </div>
       </div>
 
-      <div class="projects-content">
-        <div class="project-card" data-speed="0.8">
-          <div class="card-content">
-            <div class="card-image-wrapper">
-              <img
-                src="./assets/AirbnbApp.png"
-                alt="Airbnb Clone"
-                class="card-image"
-              />
-              <div class="card-overlay"></div>
-            </div>
-            <div class="card-info">
-              <h2 class="card-title">AirBnB Web App 🛏️</h2>
-              <div class="card-tags">
-                <span class="tech-tag">MERN Stack</span>
-                <span class="tech-tag">Authentication</span>
-                <span class="tech-tag">Booking System</span>
-              </div>
-              <p class="card-description">
-                Developed a full-stack Airbnb clone with user authentication,
-                property listings, booking functionality, and responsive design.
-                Built with Core JavaScript, Node, Express, and MongoDB.
-              </p>
-              <div class="project-links">
-                <a
-                  href="https://airbnb-project-uucp.onrender.com/listings"
-                  target="_blank"
-                  class="project-link"
-                >
-                  Live Demo <i class="ri-external-link-line"></i>
-                </a>
-                <a
-                  href="https://github.com/naitikhoriya1/Airbnb"
-                  target="_blank"
-                  class="project-link"
-                >
-                  Source Code <i class="ri-github-fill"></i>
-                </a>
-              </div>
-            </div>
+      <!-- Colors -->
+      <div class="pcard" id="proj-2">
+        <div class="pcard-img">
+          <img src="./assets/Colors.png" alt="Colors Combinations" />
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-num">02 / 04</span>
+        </div>
+        <div class="pcard-info">
+          <div class="pcard-tags">
+            <span class="ptag">GSAP</span>
+            <span class="ptag">ScrollTrigger</span>
+            <span class="ptag">Responsive Design</span>
+          </div>
+          <h3>Colors-Combinations 🎨</h3>
+          <p>
+            A brand platform for Desiviski Chai Kullad featuring vibrant color combinations,
+            smooth GSAP animations, ScrollTrigger effects, and a fully responsive layout
+            for an engaging user experience.
+          </p>
+          <div class="pcard-links">
+            <a href="https://colors-combinations.vercel.app/" target="_blank" class="plink-solid">
+              Live Demo <i class="ri-external-link-line"></i>
+            </a>
+            <a href="https://github.com/naitikhoriya1/Colors-Combinations" target="_blank" class="plink-ghost">
+              Source Code <i class="ri-github-fill"></i>
+            </a>
           </div>
         </div>
+      </div>
 
-        <div class="project-card" data-speed="0.6">
-          <div class="card-content">
-            <div class="card-image-wrapper">
-              <img
-                src="./assets/Colors.png"
-                alt="Colors Combinations"
-                class="card-image"
-              />
-              <div class="card-overlay"></div>
-            </div>
-            <div class="card-info">
-              <h2 class="card-title">Colors-Combinations 🎨</h2>
-              <div class="card-tags">
-                <span class="tech-tag">GSAP</span>
-                <span class="tech-tag">ScrollTrigger</span>
-                <span class="tech-tag">Responsive Design</span>
-              </div>
-              <p class="card-description">
-                Created a full-stack Desiviski Chai Kullad brand platform with
-                vibrant color combinations, GSAP animations, ScrollTrigger
-                effects, and a responsive design for an engaging user
-                experience.
-              </p>
-              <div class="project-links">
-                <a
-                  href="https://colors-combinations.vercel.app/"
-                  target="_blank"
-                  class="project-link"
-                >
-                  Live Demo <i class="ri-external-link-line"></i>
-                </a>
-                <a
-                  href="https://github.com/naitikhoriya1/Colors-Combinations"
-                  target="_blank"
-                  class="project-link"
-                >
-                  Source Code <i class="ri-github-fill"></i>
-                </a>
-              </div>
-            </div>
+      <!-- Uber -->
+      <div class="pcard" id="proj-3">
+        <div class="pcard-img">
+          <img src="./assets/UberApp.png" alt="Uber Clone" />
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-num">03 / 04</span>
+        </div>
+        <div class="pcard-info">
+          <div class="pcard-tags">
+            <span class="ptag">MERN Stack</span>
+            <span class="ptag">Real-time</span>
+            <span class="ptag">Payments</span>
+          </div>
+          <h3>Uber App 🚕</h3>
+          <p>
+            A full-stack Uber clone using the MERN stack with real-time ride booking,
+            live driver tracking, fare calculation, user authentication, and payment
+            gateway integration.
+          </p>
+          <div class="pcard-links">
+            <a href="https://github.com/naitikhoriya1/Uber" target="_blank" class="plink-solid">
+              Source Code <i class="ri-github-fill"></i>
+            </a>
           </div>
         </div>
+      </div>
 
-        <div class="project-card" data-speed="0.7">
-          <div class="card-content">
-            <div class="card-image-wrapper">
-              <img
-                src="./assets/UberApp.png"
-                alt="Uber Clone"
-                class="card-image"
-              />
-              <div class="card-overlay"></div>
-            </div>
-            <div class="card-info">
-              <h2 class="card-title">Uber App 🚕</h2>
-              <div class="card-tags">
-                <span class="tech-tag">MERN Stack</span>
-                <span class="tech-tag">Real-time Tracking</span>
-                <span class="tech-tag">Payment Integration</span>
-              </div>
-              <p class="card-description">
-                Developed a full-stack Uber clone using the MERN stack,
-                featuring real-time ride booking, driver tracking, fare
-                calculation, user authentication, payment gateway integration,
-                and a responsive user interface.
-              </p>
-              <div class="project-links">
-                <a
-                  href="https://github.com/naitikhoriya1/Uber"
-                  target="_blank"
-                  class="project-link"
-                >
-                  Source Code <i class="ri-github-fill"></i>
-                </a>
-              </div>
-            </div>
-          </div>
+      <!-- Chai Kullad -->
+      <div class="pcard" id="proj-4">
+        <div class="pcard-img">
+          <img src="./assets/ChaiApp.png" alt="Chai Kullad" />
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-num">04 / 04</span>
         </div>
-
-        <div class="project-card" data-speed="0.9">
-          <div class="card-content">
-            <div class="card-image-wrapper">
-              <img
-                src="./assets/ChaiApp.png"
-                alt="Desiviski Chai"
-                class="card-image"
-              />
-              <div class="card-overlay"></div>
-            </div>
-            <div class="card-info">
-              <h2 class="card-title">Chai Kullad 🌸</h2>
-              <div class="card-tags">
-                <span class="tech-tag">Full Stack</span>
-                <span class="tech-tag">E-commerce</span>
-                <span class="tech-tag">UI/UX Design</span>
-              </div>
-              <p class="card-description">
-                Designed a full-stack Desiviski Chai Kullad brand platform
-                featuring product showcasing, online ordering, user
-                authentication, and a responsive UI to enhance customer
-                engagement and brand visibility.
-              </p>
-              <div class="project-links">
-                <a
-                  href="https://desi-viski-chai.vercel.app/"
-                  target="_blank"
-                  class="project-link"
-                >
-                  Live Demo <i class="ri-external-link-line"></i>
-                </a>
-                <a
-                  href="https://github.com/naitikhoriya1/kulladwithethic"
-                  target="_blank"
-                  class="project-link"
-                >
-                  Source Code <i class="ri-github-fill"></i>
-                </a>
-              </div>
-            </div>
+        <div class="pcard-info">
+          <div class="pcard-tags">
+            <span class="ptag">Full Stack</span>
+            <span class="ptag">E-commerce</span>
+            <span class="ptag">UI/UX Design</span>
+          </div>
+          <h3>Chai Kullad 🌸</h3>
+          <p>
+            A full-stack brand platform for Desiviski Chai Kullad with product showcasing,
+            online ordering, user authentication, and a responsive UI to enhance customer
+            engagement and brand visibility.
+          </p>
+          <div class="pcard-links">
+            <a href="https://desi-viski-chai.vercel.app/" target="_blank" class="plink-solid">
+              Live Demo <i class="ri-external-link-line"></i>
+            </a>
+            <a href="https://github.com/naitikhoriya1/kulladwithethic" target="_blank" class="plink-ghost">
+              Source Code <i class="ri-github-fill"></i>
+            </a>
           </div>
         </div>
       </div>
     </div>
+  </main>
 
-    <div class="page5">
-      <h1>More Landing Pages</h1>
-      <div class="page5-up">
-        <div class="page5-left">
-          <div class="page5-left-img">
-            <img src="./assets/project1.png" alt="" data-speed="0.15" />
-            <h5>landing page 1</h5>
-          </div>
-        </div>
-        <div class="page5-right">
-          <div class="page5-right-img">
-            <img src="./assets/project2.png" alt="" data-speed="0.2" />
-            <h5>landing page 2</h5>
-          </div>
+  <!-- ===== LANDING PAGES ===== -->
+  <section class="landing-section">
+    <div class="landing-header reveal-left">
+      <p class="section-label">Creative Frontend</p>
+      <h2>Landing Pages</h2>
+    </div>
+    <div class="landing-grid">
+      <div class="lcard" id="lp-1">
+        <img src="./assets/project1.png" alt="Landing page 1" />
+        <div class="lcard-footer">
+          <h5>Landing Page 1</h5>
+          <i class="ri-arrow-right-up-line"></i>
         </div>
       </div>
-      <div class="page5-down">
-        <div class="page5-left">
-          <div class="page5-left-img">
-            <img src="./assets/project3.png" alt="" data-speed="0.12" />
-            <h5>landing page 3</h5>
-          </div>
-        </div>
-        <div class="page5-right">
-          <div class="page5-right-img">
-            <img src="./assets/project4.png" alt="" data-speed="0.18" />
-            <h5>landing page 4</h5>
-          </div>
+      <div class="lcard" id="lp-2">
+        <img src="./assets/project2.png" alt="Landing page 2" />
+        <div class="lcard-footer">
+          <h5>Landing Page 2</h5>
+          <i class="ri-arrow-right-up-line"></i>
         </div>
       </div>
-      <div class="page5-middle">
-        <div class="page5-left">
-          <div class="page5-left-img">
-            <img src="./assets/project5.png" alt="" data-speed="0.14" />
-            <h5>landing page 5</h5>
-          </div>
+      <div class="lcard" id="lp-3">
+        <img src="./assets/project3.png" alt="Landing page 3" />
+        <div class="lcard-footer">
+          <h5>Landing Page 3</h5>
+          <i class="ri-arrow-right-up-line"></i>
         </div>
-        <div class="page5-right">
-          <div class="page5-right-img">
-            <img src="./assets/project6.png" alt="" data-speed="0.26" />
-            <h5>landing page 6</h5>
-          </div>
+      </div>
+      <div class="lcard" id="lp-4">
+        <img src="./assets/project4.png" alt="Landing page 4" />
+        <div class="lcard-footer">
+          <h5>Landing Page 4</h5>
+          <i class="ri-arrow-right-up-line"></i>
+        </div>
+      </div>
+      <div class="lcard" id="lp-5">
+        <img src="./assets/project5.png" alt="Landing page 5" />
+        <div class="lcard-footer">
+          <h5>Landing Page 5</h5>
+          <i class="ri-arrow-right-up-line"></i>
+        </div>
+      </div>
+      <div class="lcard" id="lp-6">
+        <img src="./assets/project6.png" alt="Landing page 6" />
+        <div class="lcard-footer">
+          <h5>Landing Page 6</h5>
+          <i class="ri-arrow-right-up-line"></i>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="footer">
-      <div class="footer-left">
-        <h1>Let's Collaborate</h1>
-        <h3>© ethical_khoriya</h3>
+  <!-- ===== FOOTER ===== -->
+  <div class="footer">
+    <div class="footer-left">
+      <h1>Let's Collaborate</h1>
+      <h3>© ethical_khoriya</h3>
+    </div>
+    <div class="footer-right">
+      <div class="gmail">
+        <h2>ethicalkhoriya@gmail.com</h2>
       </div>
-      <div class="footer-right">
-        <div class="gmail">
-          <h2>ethicalkhoriya@gmail.com</h2>
-        </div>
-        <div class="footer-link">
-          <a href="https://github.com/naitikhoriya1" target="_blank"
-            >Github <i class="ri-github-fill"></i
-          ></a>
-          <a
-            href="https://www.linkedin.com/in/naitik-khoriya-4962a9229/"
-            target="_blank"
-            >LinkedIn <i class="ri-linkedin-fill"></i
-          ></a>
-          <a href="https://www.instagram.com/ethical_khoriya/" target="_blank"
-            >Instagram <i class="ri-instagram-fill"></i
-          ></a>
-        </div>
+      <div class="footer-link">
+        <a href="https://github.com/naitikhoriya1" target="_blank">Github <i class="ri-github-fill"></i></a>
+        <a href="https://www.linkedin.com/in/naitik-khoriya-4962a9229/" target="_blank">LinkedIn <i
+            class="ri-linkedin-fill"></i></a>
+        <a href="https://www.instagram.com/ethical_khoriya/" target="_blank">Instagram <i
+            class="ri-instagram-fill"></i></a>
       </div>
     </div>
+  </div>
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
-      integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script src="script.js"></script>
-  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+    integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+    integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="script.js"></script>
+
+  <script>
+    // ===== SCROLL REVEAL =====
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); }),
+      { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
+    );
+    document.querySelectorAll(".reveal, .reveal-left").forEach(el => observer.observe(el));
+
+    // ===== STAGGERED CARD REVEALS =====
+    const cardObserver = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add("visible");
+          e.target.style.transitionDelay = e.target.dataset.delay || "0s";
+        }
+      }),
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll(".pcard").forEach((card, i) => {
+      card.dataset.delay = `${i * 0.08}s`;
+      card.style.transition = `opacity 0.9s ease ${i * 0.08}s, transform 0.9s cubic-bezier(0.34,1.56,0.64,1) ${i * 0.08}s, box-shadow 0.4s ease`;
+      cardObserver.observe(card);
+    });
+
+    document.querySelectorAll(".lcard").forEach((card, i) => {
+      card.style.transitionDelay = `${i * 0.07}s`;
+      card.style.transition = `opacity 0.7s ease ${i * 0.07}s, transform 0.7s ease ${i * 0.07}s, border-color 0.3s ease, box-shadow 0.4s ease`;
+      cardObserver.observe(card);
+    });
+
+    // ===== FILTER BUTTONS =====
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    filterBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+      });
+    });
+  </script>
+</body>
+
 </html>
